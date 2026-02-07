@@ -8,7 +8,12 @@
  */
 
 import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
-import { join, isAbsolute } from 'node:path';
+import { join, isAbsolute, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const AGENT_ROOT = join(__dirname, '..', '..');
+const PROJECT_ROOT = join(AGENT_ROOT, '..');
 
 interface PortabilityAuditResult {
     check: string;
@@ -20,7 +25,7 @@ export async function auditPortability(): Promise<PortabilityAuditResult[]> {
     console.log('📦 Auditing System Portability...');
     
     const results: PortabilityAuditResult[] = [];
-    const agentRoot = join(process.cwd(), '.agent');
+    const agentRoot = AGENT_ROOT;
     
     // 1. Brand Neutrality Check
     const brandIssues: string[] = [];
@@ -32,13 +37,13 @@ export async function auditPortability(): Promise<PortabilityAuditResult[]> {
             if (content.includes('Smile Savers')) {
                 // Ignore self-references in auditors and checks
                 if (!file.includes('auditor.ts') && !file.includes('validate-')) {
-                    const relPath = file.replace(process.cwd(), '');
+                    const relPath = file.replace(PROJECT_ROOT, '');
                     brandIssues.push(`❌ Found "Smile Savers" in: ${relPath}`);
                 }
             }
             if (content.includes('smilesavers')) {
                  if (!file.includes('auditor.ts') && !file.includes('validate-')) {
-                     const relPath = file.replace(process.cwd(), '');
+                     const relPath = file.replace(PROJECT_ROOT, '');
                      brandIssues.push(`❌ Found "smilesavers" in: ${relPath}`);
                  }
             }
@@ -55,7 +60,7 @@ export async function auditPortability(): Promise<PortabilityAuditResult[]> {
             if (content.match(/[A-Z]:\\[^\n]*Users\\/i) || content.match(/\/Users\/[^\n]*\//)) {
                 // Ignore self-references in this script and test files
                 if (!file.includes('portability-auditor.ts') && !file.includes('.log')) {
-                    const relPath = file.replace(process.cwd(), '');
+                    const relPath = file.replace(PROJECT_ROOT, '');
                     pathIssues.push(`⚠️ Potential absolute path in: ${relPath}`);
                 }
             }
@@ -74,7 +79,7 @@ export async function auditPortability(): Promise<PortabilityAuditResult[]> {
     });
 
     // 4. Package Configuration
-    const pkgPath = join(process.cwd(), 'package.json');
+    const pkgPath = join(PROJECT_ROOT, 'package.json');
     const pkgIssues: string[] = [];
     if (existsSync(pkgPath)) {
         const pkg = JSON.parse(readFileSync(pkgPath, 'utf8'));

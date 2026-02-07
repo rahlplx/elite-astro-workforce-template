@@ -8,7 +8,11 @@
  */
 
 import { readFileSync, readdirSync, statSync } from 'node:fs';
-import { join } from 'node:path';
+import { join, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const AGENT_ROOT = join(__dirname, '..', '..');
 
 interface SkillAuditResult {
     skill: string;
@@ -19,7 +23,7 @@ interface SkillAuditResult {
 
 export async function auditSkills(): Promise<SkillAuditResult[]> {
     const results: SkillAuditResult[] = [];
-    const skillsDir = join(process.cwd(), '.agent', 'skills');
+    const skillsDir = join(AGENT_ROOT, 'skills');
 
     try {
         const skills = getAllSkills(skillsDir);

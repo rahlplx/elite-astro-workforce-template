@@ -26,3 +26,14 @@ This document contains permanent rules and best practices derived from real-worl
 - **Atomization**: Break down complex requests into the smallest possible logical units (Atoms).
 - **Context Passing**: Intermediate results MUST be passed to subsequent agents in a pipeline via `sharedContext`.
 - **Short Pathways**: Check `learning.json` for high-success patterns before initiating full discovery.
+
+## Framework
+
+- Every correction is an opportunity to improve
+- Document patterns, not just fixes
+- Review lessons before similar tasks
+
+## Styling
+
+- Always append `deg` to hue values in `oklch()` (e.g., `oklch(22% 0.05 230deg)`).
+- This ensures maximum compatibility across browser engines and build tools.

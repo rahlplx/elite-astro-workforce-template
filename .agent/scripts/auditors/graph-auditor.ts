@@ -8,7 +8,12 @@
  */
 
 import { readFileSync, existsSync } from 'node:fs';
-import { join } from 'node:path';
+import { join, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const AGENT_ROOT = join(__dirname, '..', '..');
+const PROJECT_ROOT = join(AGENT_ROOT, '..');
 
 interface GraphAuditResult {
     check: string;
@@ -23,7 +28,7 @@ interface AgentGraph {
 
 export async function auditGraph(): Promise<GraphAuditResult[]> {
     const results: GraphAuditResult[] = [];
-    const graphPath = join(process.cwd(), '.agent', 'graph', 'agents.graph.json');
+    const graphPath = join(AGENT_ROOT, 'graph', 'agents.graph.json');
 
     if (!existsSync(graphPath)) {
         return [{ check: 'Graph File Exists', passed: false, issues: ['❌ agents.graph.json missing'] }];
@@ -50,7 +55,7 @@ export async function auditGraph(): Promise<GraphAuditResult[]> {
         const pathIssues: string[] = [];
         graph.nodes.forEach(n => {
             if (n.skillPath) {
-                const fullPath = join(process.cwd(), n.skillPath, 'SKILL.md');
+                const fullPath = join(PROJECT_ROOT, n.skillPath, 'SKILL.md');
                 if (!existsSync(fullPath)) {
                     pathIssues.push(`❌ Broken Skill Path: ${n.id} -> ${n.skillPath}`);
                 }

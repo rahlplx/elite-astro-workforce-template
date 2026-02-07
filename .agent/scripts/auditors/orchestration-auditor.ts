@@ -8,7 +8,11 @@
  */
 
 import { readFileSync, existsSync } from 'node:fs';
-import { join } from 'node:path';
+import { join, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const AGENT_ROOT = join(__dirname, '..', '..');
 
 interface OrchestrationAuditResult {
     check: string;
@@ -18,7 +22,7 @@ interface OrchestrationAuditResult {
 
 export async function auditOrchestration(): Promise<OrchestrationAuditResult[]> {
     const results: OrchestrationAuditResult[] = [];
-    const agentRoot = join(process.cwd(), '.agent');
+    const agentRoot = AGENT_ROOT;
 
     // 1. Router Coverage
     const routerPath = join(agentRoot, 'orchestration', 'router.ts');

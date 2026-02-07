@@ -52,15 +52,38 @@
 **Root Cause:** Need for systematic learning from corrections.
 
 **Lesson Learned:**
+
 - Every correction is an opportunity to improve
 - Document patterns, not just fixes
 - Review lessons before similar tasks
 
 **Pattern to Remember:**
-```
+
+```text
 CORRECTION RECEIVED → ANALYZE ROOT CAUSE → DOCUMENT LESSON → UPDATE WORKFLOW
 ```
 
 **Tags:** #initialization #meta #workflow
+
+---
+
+## 2026-02-07 - Styling
+
+**What Happened:** Chrome < 111 does not support `oklch()` without explicit degree units in some contexts, or parser failures in older environments.
+
+**Root Cause:** Inconsistent CSS parser support for unitless hue in oklch.
+
+**Lesson Learned:**
+
+- Always append `deg` to hue values in `oklch()` (e.g., `oklch(22% 0.05 230deg)`).
+- This ensures maximum compatibility across browser engines and build tools.
+
+**Pattern to Remember:**
+
+```css
+color: oklch(L C Hdeg);
+```
+
+**Tags: #styling #css #compatibility**
 
 ---
