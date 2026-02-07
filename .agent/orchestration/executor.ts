@@ -401,11 +401,20 @@ export class SkillExecutor {
                         }
                     }
 
-                    if (result.success) return result;
-                    
-                    // If it failed (either execution or critique), log and retry
-                    logger.warn(`Execution attempt ${attempts} failed`, { output: result.output });
-                    lastResult = result;
+                    if (result.success) {
+                        // 3. Visual Eye (Vibe Coder Phase 2)
+                        const uiKeywords = ['style', 'design', 'ui', 'color', 'layout', 'vibe', 'premium', 'look'];
+                        const isUIChange = uiKeywords.some(kw => context.instruction.toLowerCase().includes(kw)) || 
+                                          result.skillUsed === 'design-expert' || 
+                                          result.skillUsed === 'ai-pilot';
+                        
+                        if (isUIChange) {
+                            logger.info('👁️  [BROWSER-EYE]: Triggering visual feedback loop...');
+                            spawnSync('npx', ['tsx', '.agent/scripts/browser-eye.ts'], { stdio: 'inherit' });
+                        }
+                        
+                        return result;
+                    }
                 
                 // Add correction context to instruction for next attempt
                 // We keep the original instruction but append failure context

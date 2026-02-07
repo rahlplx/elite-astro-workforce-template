@@ -1,1 +1,509 @@
-{}
+{
+  "pattern:all-skills": {
+    "data": {
+      "ai-pilot": {
+        "name": "ai-pilot",
+        "description": "",
+        "version": "1.0.0",
+        "activationPhrases": [
+          "ai pilot"
+        ],
+        "capabilities": [],
+        "techStack": [
+          "**Astro 6**: Components, Actions, Server Islands, Content Collections",
+          "**Tailwind 4**: CSS-first configuration, design tokens",
+          "**DaisyUI 5**: Component library integration",
+          "**TypeScript**: Type-safe development with Zod validation"
+        ],
+        "rules": []
+      },
+      "api-patterns": {
+        "name": "api-patterns",
+        "description": "",
+        "version": "1.0.0",
+        "activationPhrases": [
+          "api patterns"
+        ],
+        "capabilities": [],
+        "techStack": [],
+        "rules": []
+      },
+      "app-builder": {
+        "name": "app-builder",
+        "description": "",
+        "version": "1.0.0",
+        "activationPhrases": [
+          "app builder"
+        ],
+        "capabilities": [],
+        "techStack": [],
+        "rules": []
+      },
+      "architecture": {
+        "name": "architecture",
+        "description": "",
+        "version": "1.0.0",
+        "activationPhrases": [
+          "architecture"
+        ],
+        "capabilities": [],
+        "techStack": [],
+        "rules": []
+      },
+      "astro-5-generator": {
+        "name": "astro-5-generator",
+        "description": "",
+        "version": "1.0.0",
+        "activationPhrases": [
+          "astro 5 generator"
+        ],
+        "capabilities": [],
+        "techStack": [],
+        "rules": []
+      },
+      "astro-debt-collector": {
+        "name": "astro-debt-collector",
+        "description": "",
+        "version": "1.0.0",
+        "activationPhrases": [
+          "astro debt collector"
+        ],
+        "capabilities": [],
+        "techStack": [],
+        "rules": []
+      },
+      "astro-oracle": {
+        "name": "astro-oracle",
+        "description": "",
+        "version": "1.0.0",
+        "activationPhrases": [
+          "astro oracle"
+        ],
+        "capabilities": [],
+        "techStack": [],
+        "rules": []
+      },
+      "astro-performance-expert": {
+        "name": "astro-performance-expert",
+        "description": "",
+        "version": "1.0.0",
+        "activationPhrases": [
+          "astro performance expert"
+        ],
+        "capabilities": [],
+        "techStack": [],
+        "rules": []
+      },
+      "behavioral-modes": {
+        "name": "behavioral-modes",
+        "description": "",
+        "version": "1.0.0",
+        "activationPhrases": [
+          "behavioral modes"
+        ],
+        "capabilities": [],
+        "techStack": [],
+        "rules": []
+      },
+      "brainstorming": {
+        "name": "brainstorming",
+        "description": "",
+        "version": "1.0.0",
+        "activationPhrases": [
+          "brainstorming"
+        ],
+        "capabilities": [],
+        "techStack": [],
+        "rules": []
+      },
+      "brand-interviewer": {
+        "name": "brand-interviewer",
+        "description": "",
+        "version": "1.0.0",
+        "activationPhrases": [
+          "brand interviewer"
+        ],
+        "capabilities": [],
+        "techStack": [],
+        "rules": []
+      },
+      "cicd-automation": {
+        "name": "cicd-automation",
+        "description": "",
+        "version": "1.0.0",
+        "activationPhrases": [
+          "cicd automation"
+        ],
+        "capabilities": [],
+        "techStack": [],
+        "rules": []
+      },
+      "clean-code": {
+        "name": "clean-code",
+        "description": "",
+        "version": "1.0.0",
+        "activationPhrases": [
+          "clean code"
+        ],
+        "capabilities": [],
+        "techStack": [],
+        "rules": []
+      },
+      "code-review-checklist": {
+        "name": "code-review-checklist",
+        "description": "",
+        "version": "1.0.0",
+        "activationPhrases": [
+          "code review checklist"
+        ],
+        "capabilities": [],
+        "techStack": [],
+        "rules": []
+      },
+      "content-crafter": {
+        "name": "content-crafter",
+        "description": "",
+        "version": "1.0.0",
+        "activationPhrases": [
+          "content crafter"
+        ],
+        "capabilities": [],
+        "techStack": [],
+        "rules": []
+      },
+      "context7": {
+        "name": "context7",
+        "description": "",
+        "version": "1.0.0",
+        "activationPhrases": [
+          "context7"
+        ],
+        "capabilities": [],
+        "techStack": [],
+        "rules": []
+      },
+      "database-design": {
+        "name": "database-design",
+        "description": "",
+        "version": "1.0.0",
+        "activationPhrases": [
+          "database design"
+        ],
+        "capabilities": [],
+        "techStack": [],
+        "rules": []
+      },
+      "deployment-procedures": {
+        "name": "deployment-procedures",
+        "description": "",
+        "version": "1.0.0",
+        "activationPhrases": [
+          "deployment procedures"
+        ],
+        "capabilities": [],
+        "techStack": [],
+        "rules": []
+      },
+      "design-expert": {
+        "name": "design-expert",
+        "description": "",
+        "version": "1.0.0",
+        "activationPhrases": [
+          "design expert"
+        ],
+        "capabilities": [],
+        "techStack": [],
+        "rules": []
+      },
+      "documentation-templates": {
+        "name": "documentation-templates",
+        "description": "",
+        "version": "1.0.0",
+        "activationPhrases": [
+          "documentation templates"
+        ],
+        "capabilities": [
+          "Feature 1",
+          "Feature 2"
+        ],
+        "techStack": [],
+        "rules": []
+      },
+      "elite-core": {
+        "name": "elite-core",
+        "description": "",
+        "version": "1.0.0",
+        "activationPhrases": [
+          "elite core"
+        ],
+        "capabilities": [],
+        "techStack": [],
+        "rules": []
+      },
+      "geo-fundamentals": {
+        "name": "geo-fundamentals",
+        "description": "",
+        "version": "1.0.0",
+        "activationPhrases": [
+          "geo fundamentals"
+        ],
+        "capabilities": [],
+        "techStack": [],
+        "rules": []
+      },
+      "github-manager": {
+        "name": "github-manager",
+        "description": "",
+        "version": "1.0.0",
+        "activationPhrases": [
+          "github manager"
+        ],
+        "capabilities": [],
+        "techStack": [],
+        "rules": []
+      },
+      "google-developer-knowledge": {
+        "name": "google-developer-knowledge",
+        "description": "",
+        "version": "1.0.0",
+        "activationPhrases": [
+          "google developer knowledge"
+        ],
+        "capabilities": [
+          "**Search Documentation**: Find relevant guides and API references.",
+          "**Retrieve Content**: Get full markdown content of documentation pages."
+        ],
+        "techStack": [],
+        "rules": []
+      },
+      "graph-integrity-validator": {
+        "name": "graph-integrity-validator",
+        "description": "",
+        "version": "1.0.0",
+        "activationPhrases": [
+          "graph integrity validator"
+        ],
+        "capabilities": [],
+        "techStack": [],
+        "rules": []
+      },
+      "i18n-localization": {
+        "name": "i18n-localization",
+        "description": "",
+        "version": "1.0.0",
+        "activationPhrases": [
+          "i18n localization"
+        ],
+        "capabilities": [],
+        "techStack": [],
+        "rules": []
+      },
+      "intelligent-routing": {
+        "name": "intelligent-routing",
+        "description": "",
+        "version": "1.0.0",
+        "activationPhrases": [
+          "intelligent routing"
+        ],
+        "capabilities": [],
+        "techStack": [],
+        "rules": []
+      },
+      "keystatic-expert": {
+        "name": "keystatic-expert",
+        "description": "",
+        "version": "1.0.0",
+        "activationPhrases": [
+          "keystatic expert"
+        ],
+        "capabilities": [],
+        "techStack": [],
+        "rules": []
+      },
+      "notebooklm-expert": {
+        "name": "notebooklm-expert",
+        "description": "",
+        "version": "1.0.0",
+        "activationPhrases": [
+          "notebooklm expert"
+        ],
+        "capabilities": [],
+        "techStack": [],
+        "rules": []
+      },
+      "performance-profiling": {
+        "name": "performance-profiling",
+        "description": "",
+        "version": "1.0.0",
+        "activationPhrases": [
+          "performance profiling"
+        ],
+        "capabilities": [],
+        "techStack": [],
+        "rules": []
+      },
+      "plan-writing": {
+        "name": "plan-writing",
+        "description": "",
+        "version": "1.0.0",
+        "activationPhrases": [
+          "plan writing"
+        ],
+        "capabilities": [],
+        "techStack": [],
+        "rules": []
+      },
+      "production-monitoring": {
+        "name": "production-monitoring",
+        "description": "",
+        "version": "1.0.0",
+        "activationPhrases": [
+          "production monitoring"
+        ],
+        "capabilities": [],
+        "techStack": [],
+        "rules": []
+      },
+      "programmatic-seo": {
+        "name": "programmatic-seo",
+        "description": "",
+        "version": "1.0.0",
+        "activationPhrases": [
+          "programmatic seo"
+        ],
+        "capabilities": [],
+        "techStack": [],
+        "rules": []
+      },
+      "schema-generator": {
+        "name": "schema-generator",
+        "description": "",
+        "version": "1.0.0",
+        "activationPhrases": [
+          "schema generator"
+        ],
+        "capabilities": [
+          "**JSON-LD Generation**: Create valid, Google-compliant JSON-LD blobs.",
+          "**Schema Types**: Expertise in `LocalBusiness`, `MedicalEntity`, `FAQPage`, `Article`, `BreadcrumbList`, and `Service`.",
+          "**Validation**: Ensure all generated schema passes Google's Rich Results Test standards.",
+          "**Dynamic Injection**: Integrate schema into Astro layouts and pages via the `<Head>` or specific components."
+        ],
+        "techStack": [],
+        "rules": []
+      },
+      "sentinel-auditor": {
+        "name": "sentinel-auditor",
+        "description": "",
+        "version": "1.0.0",
+        "activationPhrases": [
+          "sentinel auditor"
+        ],
+        "capabilities": [],
+        "techStack": [],
+        "rules": []
+      },
+      "seo-fundamentals": {
+        "name": "seo-fundamentals",
+        "description": "",
+        "version": "1.0.0",
+        "activationPhrases": [
+          "seo fundamentals"
+        ],
+        "capabilities": [],
+        "techStack": [],
+        "rules": []
+      },
+      "stitch-designer": {
+        "name": "stitch-designer",
+        "description": "",
+        "version": "1.0.0",
+        "activationPhrases": [
+          "stitch designer"
+        ],
+        "capabilities": [],
+        "techStack": [],
+        "rules": []
+      },
+      "systematic-debugging": {
+        "name": "systematic-debugging",
+        "description": "",
+        "version": "1.0.0",
+        "activationPhrases": [
+          "systematic debugging"
+        ],
+        "capabilities": [],
+        "techStack": [],
+        "rules": []
+      },
+      "tailwind-v4-architect": {
+        "name": "tailwind-v4-architect",
+        "description": "",
+        "version": "1.0.0",
+        "activationPhrases": [
+          "tailwind v4 architect"
+        ],
+        "capabilities": [],
+        "techStack": [],
+        "rules": []
+      },
+      "tdd-workflow": {
+        "name": "tdd-workflow",
+        "description": "",
+        "version": "1.0.0",
+        "activationPhrases": [
+          "tdd workflow"
+        ],
+        "capabilities": [],
+        "techStack": [],
+        "rules": []
+      },
+      "testing-patterns": {
+        "name": "testing-patterns",
+        "description": "",
+        "version": "1.0.0",
+        "activationPhrases": [
+          "testing patterns"
+        ],
+        "capabilities": [],
+        "techStack": [],
+        "rules": []
+      },
+      "vulnerability-scanner": {
+        "name": "vulnerability-scanner",
+        "description": "",
+        "version": "1.0.0",
+        "activationPhrases": [
+          "vulnerability scanner"
+        ],
+        "capabilities": [],
+        "techStack": [],
+        "rules": []
+      },
+      "web-design-guidelines": {
+        "name": "web-design-guidelines",
+        "description": "",
+        "version": "1.0.0",
+        "activationPhrases": [
+          "web design guidelines"
+        ],
+        "capabilities": [],
+        "techStack": [],
+        "rules": []
+      },
+      "webapp-testing": {
+        "name": "webapp-testing",
+        "description": "",
+        "version": "1.0.0",
+        "activationPhrases": [
+          "webapp testing"
+        ],
+        "capabilities": [],
+        "techStack": [],
+        "rules": []
+      }
+    },
+    "timestamp": 1770467015124,
+    "hits": 0,
+    "hash": "50706c36c6cf"
+  }
+}

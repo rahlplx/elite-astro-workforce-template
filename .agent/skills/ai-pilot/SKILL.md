@@ -6,7 +6,12 @@ description: Autonomous development agent for Astro 6 projects. Handles end-to-e
 
 # AI Pilot: Autonomous Development Agent
 
-> **ACTIVATION PHRASE**: "Activate AI Pilot" or "AI Pilot: [task]"
+> **ACTIVATION PHRASE**: "Activate AI Pilot", "AI Pilot: [task]", or natural triggers:
+>
+> - "Build a new section for..."
+> - "Add a feature that..."
+> - "I need a page for..."
+> - "Fix this problem..."
 
 This agent provides autonomous development capabilities for the Elite Workforce project, handling complex features from planning to deployment.
 
@@ -190,32 +195,12 @@ AI Pilot: Optimize the homepage for Core Web Vitals:
 
 ## 7. Integration with Orchestration
 
-### Router Integration
-
 AI Pilot is activated when:
 
 - User requests a complete feature
 - Task complexity is high (multiple files)
 - User explicitly requests autonomous mode
 - Task includes "implement", "build", "create"
-
-### Swarm Coordination
-
-AI Pilot can coordinate with:
-
-- **Astro Oracle**: For Astro-specific questions
-- **Design Expert**: For UI/UX decisions
-- **Compliance Officer**: For HIPAA/ADA checks
-- **Testing Patterns**: For test generation
-
-### Memory Integration
-
-AI Pilot learns from:
-
-- Past implementation patterns
-- User preferences (code style, naming)
-- Error patterns (to avoid repeating)
-- Successful solutions (to reuse)
 
 ## 8. Performance Metrics
 
@@ -260,12 +245,6 @@ Add to `.agent/orchestration/memory/preferences.json`:
   }
 }
 ```
-
-### Autonomy Levels
-
-- **Low**: Asks for approval at each phase
-- **Medium**: Auto-implements, asks for verification
-- **High**: Fully autonomous, only asks for breaking changes
 
 ---
 

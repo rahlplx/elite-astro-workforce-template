@@ -6,7 +6,11 @@ description: UI/UX design specialist for Astro 6 + Tailwind 4 + DaisyUI 5 stack.
 
 # Design Expert: UI/UX Specialist
 
-> **ACTIVATION PHRASE**: "Activate Design Expert" or "Design Expert: [question]"
+> **ACTIVATION PHRASE**: "Activate Design Expert", "Design Expert: [question]", or natural triggers:
+> - "Make it look premium"
+> - "Does this look good?"
+> - "Give it a better vibe"
+> - "Improve the layout of..."
 
 This agent specializes in UI/UX design decisions for the Elite Workforce project, leveraging Tailwind CSS 4, DaisyUI 5, and modern web design principles.
 
@@ -181,6 +185,7 @@ This agent is automatically invoked when:
 ## 9. UX Psychology Principles (Merged from frontend-design)
 
 ### Core Laws
+
 | Law | Principle | Application |
 |-----|-----------|-------------|
 | **Hick's Law** | More choices = slower decisions | Limit options, use progressive disclosure |
@@ -191,11 +196,13 @@ This agent is automatically invoked when:
 ## 10. Advanced Layout Principles
 
 ### Golden Ratio (φ = 1.618)
+
 - **Content : Sidebar** = roughly 62% : 38%
 - **Heading Scale** = previous × 1.618
 - **Spacing Scale** = sm → md → lg (each × 1.618)
 
 ### 8-Point Grid
+
 - **Tight**: 4px (micro)
 - **Small**: 8px
 - **Medium**: 16px
@@ -205,24 +212,28 @@ This agent is automatically invoked when:
 ## 11. Visual Effects & Animation
 
 ### Glassmorphism (Use with Restraint)
+
 - Semi-transparent background
 - Backdrop blur
 - Subtle border
 - **Warning**: Don't overuse; standard blue/white glass is a cliché.
 
 ### Animation Timing
+
 - **Entering**: Ease-out (decelerate)
 - **Leaving**: Ease-in (accelerate)
 - **Emphasis**: Ease-in-out
 - **Playful**: Bounce
 
 ## 12. "Wow Factor" Checklist
+
 - [ ] Generous whitespace
 - [ ] Subtle depth/dimension
 - [ ] Smooth animations
 - [ ] Security cues
 - [ ] Social proof
 - [ ] Clear value proposition
+- [ ] Social proof
 
 ---
 
