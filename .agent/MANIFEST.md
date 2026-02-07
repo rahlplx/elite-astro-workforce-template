@@ -11,6 +11,8 @@
 | :--- | :--- | :--- |
 | **Router** | `.agent/orchestration/router.ts` | Intelligent task routing & agent selection. |
 | **Swarm** | `.agent/orchestration/swarm.ts` | Multi-agent coordination & collaboration. |
+| **ReWoo** | `.agent/orchestration/rewoo.ts` | Symbolic planning & parallel task execution. |
+| **Critic** | `.agent/orchestration/critic.ts` | Evaluator-Optimizer loop for output validation. |
 | **CLI** | `.agent/orchestration/cli.ts` | System management & status interface. |
 | **Memory** | `.agent/orchestration/memory.ts` | Persistent context & project memory management. |
 
@@ -27,6 +29,7 @@
 - **Design**: `design-expert`, `tailwind-v4-architect`, `stitch-designer`.
 - **Quality**: `sentinel-auditor`, `astro-debt-collector`, `webapp-testing`.
 - **Logic**: `api-patterns`, `database-design`, `systematic-debugging`.
+- **Security**: `vulnerability-scanner`, `red-team-swarm`, `risk-assessor`.
 - **Growth**: `seo-fundamentals`, `programmatic-seo`, `content-crafter`.
 
 ## 🛡️ System Rules & Constitution
