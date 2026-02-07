@@ -2,6 +2,6 @@
   "hits": 0,
   "misses": 0,
   "evictions": 0,
-  "savedTokens": 1500,
-  "lastCleanup": "2026-02-07T13:44:55.745Z"
+  "savedTokens": 1000,
+  "lastCleanup": "2026-02-07T13:56:01.941Z"
 }

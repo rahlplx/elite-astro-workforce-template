@@ -169,9 +169,9 @@ export class EliteOrchestrator {
             recordLesson({
                 date: new Date().toISOString().split('T')[0],
                 category: 'implementation',
-                whatHappened: `Error processing request: ${userRequest.slice(0, 100)}`,
-                rootCause: String(error),
-                lessonLearned: 'Add error handling for this case',
+                failureMode: `Error processing request: ${userRequest.slice(0, 100)}`,
+                detectionSignal: String(error),
+                preventionRule: 'Add error handling for this case',
                 pattern: 'ERROR → ANALYZE → RECORD → PREVENT',
                 tags: ['error', 'orchestration']
             });

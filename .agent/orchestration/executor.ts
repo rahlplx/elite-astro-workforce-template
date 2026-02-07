@@ -24,6 +24,8 @@ import { memory, type UserPreferences } from './memory.js';
 import { guardrails } from './guardrails.js';
 import { learning } from './learning.js';
 import { riskAssessor, assessRisk, type RiskProfile, checkpoint } from './risk-assessor.js';
+import { critic } from './critic.js';
+import { recordLesson } from './self-improvement.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const SKILLS_DIR = join(__dirname, '..', 'skills');
@@ -345,13 +347,27 @@ export class SkillExecutor {
         while (attempts < maxAttempts) {
             attempts++;
             
-            try {
-                const result = await this.internalExecute(context);
-                if (result.success) return result;
-                
-                // If it failed, log and retry with correction
-                logger.warn(`Execution attempt ${attempts} failed`, { output: result.output });
-                lastResult = result;
+                try {
+                    let result = await this.internalExecute(context);
+                    
+                    // 2. Evaluator-Optimizer Loop (Self-Reflection)
+                    if (result.success) {
+                        const critique = await critic.evaluate(context.instruction, result.output, result.skillUsed);
+                        if (!critique.passed) {
+                            logger.warn(`🛑 [CRITIC]: Output rejected (Score: ${critique.score}). Retrying with feedback.`, { feedback: critique.feedback });
+                            result.success = false;
+                            result.output = critique.feedback;
+                            
+                            // Re-route and retry with optimized instruction
+                            context.instruction = critic.getSelfFixInstruction(context.instruction, critique);
+                        }
+                    }
+
+                    if (result.success) return result;
+                    
+                    // If it failed (either execution or critique), log and retry
+                    logger.warn(`Execution attempt ${attempts} failed`, { output: result.output });
+                    lastResult = result;
                 
                 // Add correction context to instruction for next attempt
                 // We keep the original instruction but append failure context

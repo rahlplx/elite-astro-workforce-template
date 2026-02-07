@@ -19,9 +19,9 @@ const TODO_FILE = join(TASKS_DIR, 'todo.md');
 export interface Lesson {
     date: string;
     category: LessonCategory;
-    whatHappened: string;
-    rootCause: string;
-    lessonLearned: string;
+    failureMode: string;    // What went wrong (Gist Guideline)
+    detectionSignal: string; // How we found it (Gist Guideline)
+    preventionRule: string;  // How to stop it (Gist Guideline)
     pattern: string;
     tags: string[];
 }
@@ -57,7 +57,7 @@ export function recordLesson(lesson: Lesson): void {
         writeFileSync(LESSONS_FILE, formattedLesson);
     }
 
-    console.log(`📝 Lesson recorded: ${lesson.category} - ${lesson.whatHappened.slice(0, 50)}...`);
+    console.log(`📝 Lesson recorded: ${lesson.category} - ${lesson.failureMode.slice(0, 50)}...`);
 }
 
 /**
@@ -67,11 +67,11 @@ function formatLesson(lesson: Lesson): string {
     return `
 ## ${lesson.date} - ${capitalize(lesson.category)}
 
-**What Happened:** ${lesson.whatHappened}
+**Failure Mode:** ${lesson.failureMode}
 
-**Root Cause:** ${lesson.rootCause}
+**Detection Signal:** ${lesson.detectionSignal}
 
-**Lesson Learned:** ${lesson.lessonLearned}
+**Prevention Rule:** ${lesson.preventionRule}
 
 **Pattern to Remember:**
 \`\`\`
@@ -117,9 +117,9 @@ export function searchLessons(query: string): Lesson[] {
 function parseLesson(section: string): Lesson | null {
     try {
         const dateMatch = section.match(/^(\d{4}-\d{2}-\d{2}) - (\w+)/);
-        const whatMatch = section.match(/\*\*What Happened:\*\* (.+)/);
-        const rootMatch = section.match(/\*\*Root Cause:\*\* (.+)/);
-        const lessonMatch = section.match(/\*\*Lesson Learned:\*\* (.+)/);
+        const failureMatch = section.match(/\*\*Failure Mode:\*\* (.+)/);
+        const detectionMatch = section.match(/\*\*Detection Signal:\*\* (.+)/);
+        const preventionMatch = section.match(/\*\*Prevention Rule:\*\* (.+)/);
         const patternMatch = section.match(/```\n([\s\S]*?)\n```/);
         const tagsMatch = section.match(/\*\*Tags:\*\* (.+)/);
 
@@ -128,9 +128,9 @@ function parseLesson(section: string): Lesson | null {
         return {
             date: dateMatch[1],
             category: dateMatch[2].toLowerCase() as LessonCategory,
-            whatHappened: whatMatch?.[1] || '',
-            rootCause: rootMatch?.[1] || '',
-            lessonLearned: lessonMatch?.[1] || '',
+            failureMode: failureMatch?.[1] || '',
+            detectionSignal: detectionMatch?.[1] || '',
+            preventionRule: preventionMatch?.[1] || '',
             pattern: patternMatch?.[1] || '',
             tags: tagsMatch?.[1]?.split(' ').map(t => t.replace('#', '')) || []
         };
@@ -168,7 +168,7 @@ export function checkForSimilarLessons(taskDescription: string): string | null {
 
     const relevantLessons = lessons.slice(0, 3);
     const warnings = relevantLessons.map(l =>
-        `⚠️ **${l.date}**: ${l.lessonLearned}`
+        `⚠️ **${l.date}**: ${l.preventionRule}`
     ).join('\n');
 
     return `
@@ -191,7 +191,7 @@ export function analyzeCorrection(
     // Analyze the difference between original and corrected
     const analysis: Partial<Lesson> = {
         date: new Date().toISOString().split('T')[0],
-        whatHappened: userFeedback,
+        failureMode: userFeedback,
         tags: []
     };
 
