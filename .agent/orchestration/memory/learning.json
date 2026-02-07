@@ -16,7 +16,7 @@
     }
   ],
   "errorPatterns": {
-    "infinite_recursion_in_useEffect": 12
+    "infinite_recursion_in_useEffect": 27
   },
   "successPatterns": {
     "audit the project security": 10
@@ -96,6 +96,31 @@
       "category": "UI/UX / Aesthetic Safety",
       "insight": "Mobile-First Requirement: Always start CSS/Grids with mobile-first classes (e.g., grid-cols-1) and upgrade for desktop (md:grid-cols-X).",
       "timestamp": "2026-02-07T05:58:00.000Z"
+    },
+    {
+      "category": "React",
+      "insight": "Always add dependency array to useEffect",
+      "timestamp": "2026-02-07T14:16:06.361Z"
+    },
+    {
+      "category": "React",
+      "insight": "Always add dependency array to useEffect",
+      "timestamp": "2026-02-07T14:16:17.017Z"
+    },
+    {
+      "category": "React",
+      "insight": "Always add dependency array to useEffect",
+      "timestamp": "2026-02-07T14:23:56.499Z"
+    },
+    {
+      "category": "React",
+      "insight": "Always add dependency array to useEffect",
+      "timestamp": "2026-02-07T14:27:25.368Z"
+    },
+    {
+      "category": "React",
+      "insight": "Always add dependency array to useEffect",
+      "timestamp": "2026-02-07T14:30:28.598Z"
     }
   ]
 }

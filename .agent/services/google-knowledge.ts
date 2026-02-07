@@ -33,7 +33,7 @@ export class GoogleKnowledgeService {
         // The API endpoint for searching knowledge
         const url = `${GoogleKnowledgeService.baseUrl}/projects/${projectId}/knowledge:search`;
         
-        logger.debug(`Searching Google Knowledge: ${query}`);
+        logger.info(`Searching Google Knowledge: ${query}`);
 
         const response = await fetch(url, {
             method: 'POST',
@@ -49,11 +49,11 @@ export class GoogleKnowledgeService {
 
         if (!response.ok) {
             const error = await response.text();
-            logger.error('Google Knowledge Search Failed', { error });
+            logger.error('Google Knowledge Search Failed', new Error(error));
             throw new Error(`Knowledge Search Failed: ${error}`);
         }
 
-        return await response.json();
+        return await response.json() as SearchResponse;
     }
 
     /**
@@ -80,7 +80,7 @@ export class GoogleKnowledgeService {
              throw new Error(`Failed to get document: ${response.statusText}`);
         }
 
-        return await response.json();
+        return await response.json() as KnowledgeDocument;
     }
 }
 

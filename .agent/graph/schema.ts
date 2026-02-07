@@ -10,6 +10,7 @@ export type NodeType = 'specialist' | 'leader' | 'orchestrator' | 'team';
 
 export interface BaseNode {
   id: string;
+  name: string;
   type: NodeType;
   metadata?: Record<string, any>;
 }

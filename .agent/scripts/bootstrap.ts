@@ -13,13 +13,13 @@
 
 import { existsSync, readFileSync, writeFileSync, readdirSync, statSync } from 'node:fs';
 import { join, basename } from 'node:path';
-import { cache } from '../orchestration/cache.ts';
+import { cache } from '../orchestration/cache.js';
 
 // Import specialized auditors
-import { runUIUXAudit, type UIUXAuditResult } from './auditors/ui-ux-auditor.ts';
-import { runSEOAudit, type SEOAuditResult } from './auditors/seo-auditor.ts';
-import { runSecurityAudit, type SecurityAuditResult } from './auditors/security-auditor.ts';
-import { runPerformanceAudit, type PerformanceAuditResult } from './auditors/performance-auditor.ts';
+import { runUIUXAudit, type UIUXAuditResult } from './auditors/ui-ux-auditor.js';
+import { runSEOAudit, type SEOAuditResult } from './auditors/seo-auditor.js';
+import { runSecurityAudit, type SecurityAuditResult } from './auditors/security-auditor.js';
+import { runPerformanceAudit, type PerformanceAuditResult } from './auditors/performance-auditor.js';
 
 // ========================================
 // TYPES & INTERFACES
@@ -101,7 +101,12 @@ export interface AuditResults {
 export interface AuditIssue {
     id: string;
     type: 'error' | 'warning' | 'suggestion';
-    category: 'structure' | 'code' | 'config' | 'style' | 'seo' | 'a11y' | 'perf' | 'security';
+    category: 
+        | 'structure' | 'code' | 'config' | 'style' | 'seo' | 'a11y' | 'perf' | 'security'
+        | 'contrast' | 'touch' | 'responsive' | 'consistency' | 'images' | 'forms'
+        | 'meta' | 'og' | 'twitter' | 'schema' | 'sitemap' | 'robots' | 'canonical' | 'headings' | 'content'
+        | 'secrets' | 'injection' | 'dependencies' | 'headers' | 'auth'
+        | 'scripts' | 'styles' | 'fonts' | 'resources' | 'caching' | 'compression';
     message: string;
     file?: string;
     line?: number;

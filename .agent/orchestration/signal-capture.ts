@@ -64,6 +64,7 @@ export interface MemorySignal {
     source: 'user' | 'agent' | 'system';
     projectId?: string;
     tags: string[];
+    containerTag?: string;
 }
 
 export interface ConversationTurn {

@@ -4,7 +4,8 @@
  */
 
 import { readFileSync, readdirSync, statSync } from 'node:fs';
-import { join } from 'node:path';
+import { join, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 interface SkillFrontmatter {
     name: string;
@@ -99,7 +100,9 @@ async function main() {
     console.log('🔍 Elite Skill Validator');
     console.log('========================\n');
 
-    const skillsDir = join(process.cwd(), '.agent', 'skills');
+    const scriptDir = dirname(fileURLToPath(import.meta.url));
+    const agentRoot = join(scriptDir, '..');
+    const skillsDir = join(agentRoot, 'skills');
     const skills = getAllSkills(skillsDir);
 
     console.log(`Found ${skills.length} skills to validate...\n`);

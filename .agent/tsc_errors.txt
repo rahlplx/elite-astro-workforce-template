@@ -1,0 +1,54 @@
+orchestration/signal-capture.ts(159,13): error TS2353: Object literal may only specify known properties, and 'containerTag' does not exist in type 'MemorySignal'.
+orchestration/team-manager.ts(54,52): error TS2339: Property 'name' does not exist on type 'TeamNode'.
+orchestration/team-manager.ts(65,55): error TS2339: Property 'name' does not exist on type 'TeamNode'.
+orchestration/validators.ts(51,21): error TS2345: Argument of type '{ name: string; passed: boolean; message: string; }' is not assignable to parameter of type 'never'.
+orchestration/validators.ts(60,21): error TS2345: Argument of type '{ name: string; passed: boolean; message: string; }' is not assignable to parameter of type 'never'.
+orchestration/validators.ts(71,21): error TS2345: Argument of type '{ name: string; passed: boolean; message: string; }' is not assignable to parameter of type 'never'.
+orchestration/validators.ts(91,21): error TS2345: Argument of type '{ name: string; passed: boolean; message: string; }' is not assignable to parameter of type 'never'.
+orchestration/validators.ts(99,21): error TS2345: Argument of type '{ name: string; passed: boolean; message: string; }' is not assignable to parameter of type 'never'.
+orchestration/validators.ts(125,21): error TS2345: Argument of type '{ name: string; passed: boolean; message: string; }' is not assignable to parameter of type 'never'.
+orchestration/validators.ts(138,21): error TS2345: Argument of type '{ name: string; passed: any; message: string; }' is not assignable to parameter of type 'never'.
+orchestration/validators.ts(160,21): error TS2345: Argument of type '{ name: string; passed: boolean; message: string; }' is not assignable to parameter of type 'never'.
+orchestration/validators.ts(190,21): error TS2345: Argument of type '{ name: string; passed: boolean; message: string; }' is not assignable to parameter of type 'never'.
+scripts/bootstrap.ts(16,23): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+scripts/bootstrap.ts(19,52): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+scripts/bootstrap.ts(20,50): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+scripts/bootstrap.ts(21,60): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+scripts/bootstrap.ts(22,66): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+scripts/bootstrap.ts(331,37): error TS2345: Argument of type '{ type: "error"; autoFixable: boolean; id: string; severity: "error" | "warning" | "suggestion"; category: "a11y" | "contrast" | "touch" | "responsive" | "consistency" | "images" | "forms"; ... 5 more ...; wcag?: string; }' is not assignable to parameter of type 'AuditIssue'.
+  Types of property 'category' are incompatible.
+    Type '"a11y" | "contrast" | "touch" | "responsive" | "consistency" | "images" | "forms"' is not assignable to type '"code" | "structure" | "security" | "config" | "style" | "a11y" | "seo" | "perf"'.
+      Type '"contrast"' is not assignable to type '"code" | "structure" | "security" | "config" | "style" | "a11y" | "seo" | "perf"'.
+scripts/bootstrap.ts(332,39): error TS2345: Argument of type '{ type: "warning"; autoFixable: boolean; id: string; severity: "error" | "warning" | "suggestion"; category: "a11y" | "contrast" | "touch" | "responsive" | "consistency" | "images" | "forms"; ... 5 more ...; wcag?: string; }' is not assignable to parameter of type 'AuditIssue'.
+  Types of property 'category' are incompatible.
+    Type '"a11y" | "contrast" | "touch" | "responsive" | "consistency" | "images" | "forms"' is not assignable to type '"code" | "structure" | "security" | "config" | "style" | "a11y" | "seo" | "perf"'.
+      Type '"contrast"' is not assignable to type '"code" | "structure" | "security" | "config" | "style" | "a11y" | "seo" | "perf"'.
+scripts/bootstrap.ts(337,37): error TS2345: Argument of type '{ type: "error"; autoFixable: boolean; id: string; severity: "error" | "warning" | "suggestion"; category: "meta" | "og" | "twitter" | "schema" | "sitemap" | "robots" | "canonical" | "headings" | "content"; message: string; file?: string; fix?: string; }' is not assignable to parameter of type 'AuditIssue'.
+  Types of property 'category' are incompatible.
+    Type '"content" | "meta" | "og" | "twitter" | "schema" | "sitemap" | "robots" | "canonical" | "headings"' is not assignable to type '"code" | "structure" | "security" | "config" | "style" | "a11y" | "seo" | "perf"'.
+      Type '"content"' is not assignable to type '"code" | "structure" | "security" | "config" | "style" | "a11y" | "seo" | "perf"'.
+scripts/bootstrap.ts(338,39): error TS2345: Argument of type '{ type: "warning"; autoFixable: boolean; id: string; severity: "error" | "warning" | "suggestion"; category: "meta" | "og" | "twitter" | "schema" | "sitemap" | "robots" | "canonical" | "headings" | "content"; message: string; file?: string; fix?: string; }' is not assignable to parameter of type 'AuditIssue'.
+  Types of property 'category' are incompatible.
+    Type '"content" | "meta" | "og" | "twitter" | "schema" | "sitemap" | "robots" | "canonical" | "headings"' is not assignable to type '"code" | "structure" | "security" | "config" | "style" | "a11y" | "seo" | "perf"'.
+      Type '"content"' is not assignable to type '"code" | "structure" | "security" | "config" | "style" | "a11y" | "seo" | "perf"'.
+scripts/bootstrap.ts(343,37): error TS2345: Argument of type '{ type: "error"; autoFixable: boolean; id: string; severity: "critical" | "high" | "medium" | "low"; category: "secrets" | "injection" | "dependencies" | "headers" | "config" | "auth"; ... 4 more ...; fix?: string; }' is not assignable to parameter of type 'AuditIssue'.
+  Types of property 'category' are incompatible.
+    Type '"auth" | "config" | "secrets" | "injection" | "dependencies" | "headers"' is not assignable to type '"code" | "structure" | "security" | "config" | "style" | "a11y" | "seo" | "perf"'.
+      Type '"auth"' is not assignable to type '"code" | "structure" | "security" | "config" | "style" | "a11y" | "seo" | "perf"'.
+scripts/bootstrap.ts(344,39): error TS2345: Argument of type '{ type: "warning"; autoFixable: boolean; id: string; severity: "critical" | "high" | "medium" | "low"; category: "secrets" | "injection" | "dependencies" | "headers" | "config" | "auth"; ... 4 more ...; fix?: string; }' is not assignable to parameter of type 'AuditIssue'.
+  Types of property 'category' are incompatible.
+    Type '"auth" | "config" | "secrets" | "injection" | "dependencies" | "headers"' is not assignable to type '"code" | "structure" | "security" | "config" | "style" | "a11y" | "seo" | "perf"'.
+      Type '"auth"' is not assignable to type '"code" | "structure" | "security" | "config" | "style" | "a11y" | "seo" | "perf"'.
+scripts/bootstrap.ts(349,37): error TS2345: Argument of type '{ type: "error"; autoFixable: boolean; id: string; severity: "error" | "warning" | "suggestion"; category: "images" | "scripts" | "styles" | "fonts" | "resources" | "caching" | "compression"; message: string; file?: string; impact: "high" | "medium" | "low"; fix?: string; }' is not assignable to parameter of type 'AuditIssue'.
+  Types of property 'category' are incompatible.
+    Type '"scripts" | "images" | "styles" | "fonts" | "resources" | "caching" | "compression"' is not assignable to type '"code" | "structure" | "security" | "config" | "style" | "a11y" | "seo" | "perf"'.
+      Type '"scripts"' is not assignable to type '"code" | "structure" | "security" | "config" | "style" | "a11y" | "seo" | "perf"'.
+scripts/bootstrap.ts(350,39): error TS2345: Argument of type '{ type: "warning"; autoFixable: boolean; id: string; severity: "error" | "warning" | "suggestion"; category: "images" | "scripts" | "styles" | "fonts" | "resources" | "caching" | "compression"; message: string; file?: string; impact: "high" | "medium" | "low"; fix?: string; }' is not assignable to parameter of type 'AuditIssue'.
+  Types of property 'category' are incompatible.
+    Type '"scripts" | "images" | "styles" | "fonts" | "resources" | "caching" | "compression"' is not assignable to type '"code" | "structure" | "security" | "config" | "style" | "a11y" | "seo" | "perf"'.
+      Type '"scripts"' is not assignable to type '"code" | "structure" | "security" | "config" | "style" | "a11y" | "seo" | "perf"'.
+scripts/verify-skill-coverage.ts(25,26): error TS2345: Argument of type 'string' is not assignable to parameter of type 'never'.
+services/google-knowledge.ts(36,16): error TS2339: Property 'debug' does not exist on type 'StructuredLogger'.
+services/google-knowledge.ts(52,62): error TS2353: Object literal may only specify known properties, and 'error' does not exist in type 'Error'.
+services/google-knowledge.ts(56,9): error TS2322: Type 'unknown' is not assignable to type 'SearchResponse'.
+services/google-knowledge.ts(83,9): error TS2322: Type 'unknown' is not assignable to type 'KnowledgeDocument'.

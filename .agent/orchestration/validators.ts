@@ -43,7 +43,7 @@ export class StackValidator {
      * Validate Astro 6 configuration
      */
     async validateAstro(): Promise<ValidationResult> {
-        const checks = [];
+        const checks: ValidationResult['checks'] = [];
         let allPassed = true;
 
         // Check config file
@@ -82,7 +82,7 @@ export class StackValidator {
      * Validate Edge Deployment Readiness (Vercel Standard)
      */
     async validateEdgeReady(): Promise<ValidationResult> {
-        const checks = [];
+        const checks: ValidationResult['checks'] = [];
         let allPassed = true;
 
         const pkg = this.getPackageJson();
@@ -110,7 +110,7 @@ export class StackValidator {
      * Validate Tailwind 4 configuration
      */
     async validateTailwind(): Promise<ValidationResult> {
-        const checks = [];
+        const checks: ValidationResult['checks'] = [];
         let allPassed = true;
 
         // Check CSS file for @theme
@@ -152,7 +152,7 @@ export class StackValidator {
      * Validate DaisyUI 5
      */
     async validateDaisyUI(): Promise<ValidationResult> {
-        const checks = [];
+        const checks: ValidationResult['checks'] = [];
 
         const pkg = this.getPackageJson();
         const hasDaisy = !!(pkg.dependencies?.daisyui || pkg.devDependencies?.daisyui);
@@ -171,7 +171,7 @@ export class StackValidator {
      */
     async validateConfig(fileName: string): Promise<ValidationResult> {
         const path = join(this.projectRoot, fileName);
-        const checks = [];
+        const checks: ValidationResult['checks'] = [];
         
         if (!existsSync(path)) {
             return {

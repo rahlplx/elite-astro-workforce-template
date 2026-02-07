@@ -1,9 +1,11 @@
-import { readFileSync, readdirSync, existsSync } from 'node:fs';
-import { join } from 'node:path';
+import { readFileSync, readdirSync } from 'node:fs';
+import { join, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
-const ROOT_DIR = process.cwd();
-const SKILLS_DIR = join(ROOT_DIR, '.agent/skills');
-const GRAPH_PATH = join(ROOT_DIR, '.agent/graph/agents.graph.json');
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const AGENT_ROOT = join(__dirname, '..');
+const SKILLS_DIR = join(AGENT_ROOT, 'skills');
+const GRAPH_PATH = join(AGENT_ROOT, 'graph', 'agents.graph.json');
 
 function verifyCoverage() {
     console.log('🔍 Verifying Skill Coverage...');
@@ -17,7 +19,7 @@ function verifyCoverage() {
     const graphNodes = new Set(graph.nodes.map((n: any) => n.id));
     
     // 3. Find Orphans
-    const orphans = [];
+    const orphans: string[] = [];
     for (const skill of skillFolders) {
         // Normalize skill folder name to agent ID logic if needed
         // Assuming agent ID matches folder name or matches closely
