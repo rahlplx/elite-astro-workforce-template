@@ -4,14 +4,14 @@ async function verifyRouter() {
     console.log('🧪 Verifying Router Logic...');
     
     // Test Case 1: Complex Request
-    const request1 = "Plan and implement a new landing page for Dr. Smith";
+    const request1 = "Plan and implement a new feature module";
     const result1 = analyzeRequest(request1);
     
     console.log(`\nInput: "${request1}"`);
     console.log('Mode:', result1.mode);
     console.log('Agents:', result1.agents);
 
-    if (result1.mode === 'sequential' && result1.agents.includes('elite-master')) {
+    if (result1.mode === 'sequential' && result1.agents.includes('elite-core')) {
         console.log('✅ Test Case 1 Passed (Sequential logic verified)');
     } else {
         console.error('❌ Test Case 1 Failed');

@@ -1,5 +1,5 @@
 /**
- * Smile Savers Flow - Tech Stack Validators
+ * Elite Workforce - Tech Stack Validators
  * 
  * Verifies project configuration for Astro 6, Tailwind 4, and DaisyUI 5
  * 
@@ -9,7 +9,7 @@
 import { readFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 
-interface ValidationResult {
+export interface ValidationResult {
     passed: boolean;
     checks: Array<{
         name: string;
@@ -55,7 +55,7 @@ export class StackValidator {
         });
         if (!hasConfig) allPassed = false;
 
-        // Check actions directory (Standard in Astro 6/Smile Savers)
+        // Check actions directory (Standard in Astro 6/Elite Workforce)
         const hasActions = existsSync(join(this.projectRoot, 'src/actions'));
         checks.push({
             name: 'Astro Actions',

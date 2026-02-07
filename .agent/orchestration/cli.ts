@@ -1,5 +1,5 @@
 /**
- * Smile Savers Flow - CLI Interface
+ * Elite Workforce Flow - CLI Interface
  * 
  * Command-line interface for orchestration system
  * 
@@ -8,6 +8,7 @@
 
 import { orchestrate, getMemoryStats } from './index.js';
 import { memory } from './memory.js';
+import { config } from '../config/index.js';
 
 /**
  * CLI Commands
@@ -18,7 +19,7 @@ export const commands = {
      */
     async start(userRequest: string) {
         console.log('╔════════════════════════════════════════════════════════════╗');
-        console.log('║           Smile Savers Flow - Orchestration CLI           ║');
+        console.log('║           Elite Workforce Flow - Orchestration CLI           ║');
         console.log('╚════════════════════════════════════════════════════════════╝\n');
 
         const result = await orchestrate(userRequest);
@@ -36,7 +37,7 @@ export const commands = {
      */
     async 'validate-stack'() {
         const { validator } = await import('./validators.js');
-        console.log('🔍 Smile Savers Flow - Stack Validation\n');
+        console.log('🔍 Elite Workforce Flow - Stack Validation\n');
 
         const result = await validator.validateAll();
 
@@ -53,11 +54,12 @@ export const commands = {
      * Show memory statistics
      */
     status() {
-        console.log('📊 Smile Savers Flow - Status\n');
+        console.log('📊 Elite Workforce Flow - Status\n');
 
         const stats = getMemoryStats();
 
         console.log(`Session ID: ${stats.sessionId}`);
+        console.log(`Log Level: ${config.logLevel}`);
         console.log(`Messages: ${stats.messageCount}`);
         console.log(`Completed Tasks: ${stats.completedTasks}`);
         console.log(`Most Used Agent: ${stats.mostUsedAgent}`);
@@ -71,7 +73,7 @@ export const commands = {
      * Show memory context
      */
     memory() {
-        console.log('🧠 Smile Savers Flow - Memory\n');
+        console.log('🧠 Elite Workforce Flow - Memory\n');
 
         const context = memory.getContext();
         const prefs = memory.getPreferences();
@@ -95,7 +97,7 @@ export const commands = {
      * Show learning data
      */
     learn() {
-        console.log('📚 Smile Savers Flow - Learning Data\n');
+        console.log('📚 Elite Workforce Flow - Learning Data\n');
 
         const learning = memory.getLearningData();
 
@@ -136,7 +138,7 @@ export const commands = {
      */
     help() {
         console.log('╔════════════════════════════════════════════════════════════╗');
-        console.log('║           Smile Savers Flow - CLI Commands                ║');
+        console.log('║           Elite Workforce Flow - CLI Commands                ║');
         console.log('╚════════════════════════════════════════════════════════════╝\n');
 
         console.log('Usage: npx tsx .agent/orchestration/cli.ts <command> [args]\n');

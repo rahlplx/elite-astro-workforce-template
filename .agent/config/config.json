@@ -1,0 +1,19 @@
+{
+  "retryPolicy": {
+    "maxAttempts": 3,
+    "backoffMs": 1000
+  },
+  "memory": {
+    "maxMessages": 50,
+    "maxTaskOutcomes": 100
+  },
+  "cache": {
+    "maxSize": 1000,
+    "ttlMinutes": 60,
+    "persistenceEnabled": false
+  },
+  "logging": {
+    "level": "info",
+    "outputs": ["console"]
+  }
+}

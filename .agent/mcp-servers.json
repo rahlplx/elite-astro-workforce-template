@@ -1,0 +1,164 @@
+{
+  "$schema": "https://json.schemastore.org/mcp-servers.json",
+  "version": "2.0.0",
+  "description": "Elite Workforce MCP Configuration - Free servers for Astro development",
+  "mcpServers": {
+    "astro-docs": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-remote", "https://mcp.docs.astro.build/mcp"],
+      "description": "Official Astro documentation - real-time access to latest Astro docs",
+      "category": "documentation",
+      "env": {}
+    },
+    "daisyui": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-remote", "https://mcp.docs.daisyui.com/mcp"],
+      "description": "DaisyUI component library documentation",
+      "category": "documentation",
+      "env": {}
+    },
+    "tailwind-docs": {
+      "command": "npx",
+      "args": ["-y", "@anthropic/mcp-fetch"],
+      "description": "Fetch Tailwind CSS documentation",
+      "category": "documentation",
+      "env": {}
+    },
+    "sequential-thinking": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-sequential-thinking"],
+      "description": "Chain-of-thought reasoning for complex problem solving",
+      "category": "reasoning",
+      "env": {}
+    },
+    "filesystem": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-filesystem", "./"],
+      "description": "Secure file operations within project directory",
+      "category": "core",
+      "env": {}
+    },
+    "git": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-git"],
+      "description": "Git operations - commit, branch, stash, diff",
+      "category": "core",
+      "env": {}
+    },
+    "fetch": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-fetch"],
+      "description": "Fetch web content - audit live sites, documentation",
+      "category": "web",
+      "env": {}
+    },
+    "memory": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-memory"],
+      "description": "Persistent knowledge graph memory",
+      "category": "core",
+      "env": {}
+    },
+    "puppeteer": {
+      "command": "npx",
+      "args": ["-y", "@anthropic/mcp-server-puppeteer"],
+      "description": "Browser automation - screenshots, Lighthouse audits, testing",
+      "category": "testing",
+      "env": {}
+    },
+    "brave-search": {
+      "command": "npx",
+      "args": ["-y", "@anthropic/mcp-server-brave-search"],
+      "description": "Web search for documentation and solutions (2000 free/month)",
+      "category": "web",
+      "env": {
+        "BRAVE_API_KEY": "${BRAVE_API_KEY}"
+      }
+    },
+    "context7": {
+      "command": "npx",
+      "args": ["-y", "@upstash/context7-mcp"],
+      "description": "Real-time library documentation - always current versions",
+      "category": "documentation",
+      "env": {
+        "CONTEXT7_API_KEY": "${CONTEXT7_API_KEY}"
+      }
+    },
+    "github": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-github"],
+      "description": "GitHub API - issues, PRs, repos (requires token)",
+      "category": "integration",
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "${GITHUB_PERSONAL_ACCESS_TOKEN}"
+      }
+    }
+  },
+  "serverGroups": {
+    "core": {
+      "description": "Essential servers for all operations",
+      "servers": ["filesystem", "git", "memory", "sequential-thinking"]
+    },
+    "documentation": {
+      "description": "Documentation access for Astro stack",
+      "servers": ["astro-docs", "daisyui", "tailwind-docs", "context7"]
+    },
+    "web": {
+      "description": "Web fetching and search",
+      "servers": ["fetch", "brave-search"]
+    },
+    "testing": {
+      "description": "Testing and auditing",
+      "servers": ["puppeteer"]
+    }
+  },
+  "freeApis": {
+    "placeholder-images": {
+      "name": "Placehold.co",
+      "url": "https://placehold.co/{width}x{height}",
+      "description": "Free placeholder images - no auth required",
+      "example": "https://placehold.co/600x400"
+    },
+    "lorem-picsum": {
+      "name": "Lorem Picsum",
+      "url": "https://picsum.photos/{width}/{height}",
+      "description": "Real photo placeholders from Unsplash",
+      "example": "https://picsum.photos/600/400"
+    },
+    "open-meteo": {
+      "name": "Open-Meteo",
+      "url": "https://api.open-meteo.com/v1/forecast",
+      "description": "Free weather API - no auth required",
+      "docs": "https://open-meteo.com/en/docs"
+    },
+    "dummy-json": {
+      "name": "DummyJSON",
+      "url": "https://dummyjson.com",
+      "description": "Fake REST API for testing",
+      "docs": "https://dummyjson.com/docs"
+    },
+    "json-placeholder": {
+      "name": "JSONPlaceholder",
+      "url": "https://jsonplaceholder.typicode.com",
+      "description": "Fake REST API for prototyping",
+      "docs": "https://jsonplaceholder.typicode.com/guide"
+    },
+    "random-user": {
+      "name": "Random User",
+      "url": "https://randomuser.me/api",
+      "description": "Random user generator for avatars/profiles",
+      "docs": "https://randomuser.me/documentation"
+    },
+    "rest-countries": {
+      "name": "REST Countries",
+      "url": "https://restcountries.com/v3.1/all",
+      "description": "Country data - flags, currencies, populations",
+      "docs": "https://restcountries.com"
+    }
+  },
+  "notes": {
+    "installation": "Run 'npm install' in .agent folder to install dependencies",
+    "environment": "Set environment variables for API keys in .env file",
+    "freeTier": "All MCP servers listed are free tier or no-auth required"
+  }
+}

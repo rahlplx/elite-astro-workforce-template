@@ -1,0 +1,33 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Production
+dist/
+build/
+.output/
+
+# Environment
+.env
+.env.*
+!.env.example
+.vercel/
+
+# Editor/System
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.log
+
+# Antigravity/Agent Specific
+#.agent/memory/findings.md   # Optional: Exclude session logs if preferred
+.agent/backups/              # Exclude risk-assessor backups
+
+# Keystatic
+public/keystatic/**/*
+!public/keystatic/keystatic.page.tsx
+
+# Astro
+.astro/

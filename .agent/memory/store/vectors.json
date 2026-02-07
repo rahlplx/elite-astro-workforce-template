@@ -1,0 +1,135 @@
+{
+  "collections": {
+    "semantic": [
+      {
+        "id": "1770414417964rhfvz",
+        "text": "Topic: Project Style\nContent: Always use glassmorphism effects for headers and buttons.",
+        "vector": [
+          0.087,
+          0.12,
+          1,
+          0.5,
+          0.1,
+          0.4,
+          0.2,
+          0.8,
+          0.3,
+          0.1,
+          0.2,
+          0.2,
+          0.1,
+          0,
+          0.3,
+          0.2,
+          0.4,
+          0.6,
+          0.3,
+          0,
+          0.4,
+          0.9,
+          0.8,
+          0.2,
+          0,
+          0.1,
+          0,
+          0.2,
+          0,
+          0
+        ],
+        "metadata": {
+          "type": "fact",
+          "topic": "Project Style"
+        },
+        "timestamp": 1770414417964
+      }
+    ],
+    "episodic": [
+      {
+        "id": "1770414418014hfni2",
+        "text": "User: Explain the Astro content layer\nAssistant: It integrates with Keystatic...",
+        "vector": [
+          0.08,
+          0.11,
+          1,
+          0.7,
+          0,
+          0.2,
+          0,
+          0.8,
+          0,
+          0.1,
+          0.2,
+          0.6,
+          0,
+          0.1,
+          0.2,
+          0,
+          0.5,
+          0.2,
+          0.1,
+          0,
+          0.4,
+          0.7,
+          1,
+          0.1,
+          0,
+          0.1,
+          0.1,
+          0.2,
+          0,
+          0
+        ],
+        "metadata": {
+          "type": "episode",
+          "timestamp": 1770414418014,
+          "sessionId": "sess-99"
+        },
+        "timestamp": 1770414418014
+      }
+    ],
+    "procedural": [
+      {
+        "id": "1770414418017ivcpo",
+        "text": "Task: Setup Tailwind\nProcedure:\n1. Install pkg\n2. Update config\n3. Add @theme",
+        "vector": [
+          0.077,
+          0.13,
+          1,
+          0.5,
+          0,
+          0.2,
+          0.5,
+          0.6,
+          0.1,
+          0.2,
+          0.1,
+          0.4,
+          0,
+          0.2,
+          0.3,
+          0.1,
+          0.3,
+          0.2,
+          0.4,
+          0,
+          0.2,
+          0.3,
+          0.6,
+          0.3,
+          0,
+          0.1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "metadata": {
+          "type": "procedure",
+          "task": "Setup Tailwind",
+          "stepCount": 3
+        },
+        "timestamp": 1770414418017
+      }
+    ]
+  }
+}

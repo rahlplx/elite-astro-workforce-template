@@ -1,19 +1,39 @@
 {
-  "name": "elite-ai-workforce-template",
-  "version": "2.3.0",
-  "description": "Hardened AI Agentic Workforce for Astro 6",
-  "main": ".agent/orchestration/executor.ts",
+  "name": "elite-agentic-workforce",
   "type": "module",
-  "devDependencies": {
-    "tsx": "^4.0.0",
-    "typescript": "^5.0.0"
+  "version": "2.2.0",
+  "scripts": {
+    "dev": "astro dev",
+    "clean": "npx rimraf .astro dist node_modules",
+    "test": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "test:ui": "vitest --ui",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "sentinel": "npx tsx .agent/scripts/system-health.ts",
+    "bootstrap": "npx tsx .agent/scripts/bootstrap.ts"
   },
   "dependencies": {
-    "chalk": "^5.0.0",
-    "dotenv": "^16.0.0"
+    "@astrojs/react": "^4.0.0",
+    "@astrojs/tailwind": "^6.0.0",
+    "@keystatic/astro": "^5.0.0",
+    "@keystatic/core": "^0.5.0",
+    "astro": "^5.0.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "tailwindcss": "^4.0.0"
   },
-  "scripts": {
-    "sentinel": "tsx .agent/scripts/system-health.ts",
-    "audit": "tsx .agent/scripts/verify-operationalized.ts"
+  "devDependencies": {
+    "@types/node": "^22.19.9",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@vitest/coverage-v8": "^4.0.18",
+    "@vitest/ui": "^4.0.18",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.18",
+    "zod": "^3.25.76"
   }
 }

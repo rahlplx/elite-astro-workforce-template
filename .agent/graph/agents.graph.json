@@ -1,11 +1,11 @@
 {
-  "version": "1.1.0",
+  "version": "1.2.0",
   "nodes": [
     {
-      "id": "elite-master",
+      "id": "elite-core",
       "type": "orchestrator",
       "domain": ["management", "orchestration", "quality-gate"],
-      "skillPath": ".agent/skills/elite-master",
+      "skillPath": ".agent/skills/elite-core",
       "capabilities": ["task-delegation", "result-aggregation", "standards-enforcement"]
     },
     {
@@ -22,7 +22,7 @@
       "name": "Audit Team",
       "purpose": "Comprehensive code and UI/UX verification",
       "leaderId": "sentinel-auditor",
-      "memberIds": ["sentinel-auditor", "design-expert", "astro-debt-collector", "vulnerability-scanner", "performance-profiling", "lint-and-validate", "web-design-guidelines"]
+      "memberIds": ["sentinel-auditor", "design-expert", "astro-debt-collector", "vulnerability-scanner", "performance-profiling", "web-design-guidelines"]
     },
     {
       "id": "seo-team",
@@ -38,7 +38,7 @@
       "name": "Development Team",
       "purpose": "Implementation and build automation",
       "leaderId": "ai-pilot",
-      "memberIds": ["ai-pilot", "app-builder", "astro-5-generator", "tailwind-v4-architect", "keystatic-expert", "clean-code"]
+      "memberIds": ["ai-pilot", "app-builder", "astro-5-generator", "tailwind-v4-architect", "keystatic-expert", "clean-code", "systematic-debugging", "tdd-workflow", "testing-patterns"]
     },
     {
       "id": "devops-team",
@@ -47,6 +47,14 @@
       "purpose": "Deployment automation and monitoring",
       "leaderId": "cicd-automation",
       "memberIds": ["cicd-automation", "production-monitoring", "github-manager", "deployment-procedures"]
+    },
+    {
+      "id": "architecture-team",
+      "type": "team",
+      "name": "Architecture & Standards Team",
+      "purpose": "System-wide design integrity and framework alignment",
+      "leaderId": "elite-core",
+      "memberIds": ["elite-core", "astro-oracle", "architecture", "sentinel-auditor", "google-developer-knowledge"]
     },
     {
       "id": "astro-oracle",
@@ -124,6 +132,13 @@
       "domain": ["discovery", "documentation"],
       "skillPath": ".agent/skills/context7",
       "capabilities": ["web-search", "docs-fetching"]
+    },
+    {
+      "id": "graph-integrity-validator",
+      "type": "specialist",
+      "domain": ["validation", "integrity", "graph"],
+      "skillPath": ".agent/skills/graph-integrity-validator",
+      "capabilities": ["orphan-detection", "backlink-analysis", "self-healing"]
     },
     {
       "id": "tailwind-v4-architect",
@@ -259,13 +274,6 @@
       "capabilities": ["schema-config", "content-layer-integration"]
     },
     {
-      "id": "lint-and-validate",
-      "type": "specialist",
-      "domain": ["validation", "linting"],
-      "skillPath": ".agent/skills/lint-and-validate",
-      "capabilities": ["eslint-config", "astro-check"]
-    },
-    {
       "id": "performance-profiling",
       "type": "specialist",
       "domain": ["performance", "profiling"],
@@ -327,14 +335,67 @@
       "domain": ["e2e", "playwright"],
       "skillPath": ".agent/skills/webapp-testing",
       "capabilities": ["browser-testing", "visual-diff"]
+    },
+    {
+      "id": "creative-team",
+      "type": "team",
+      "name": "Creative & AI Tools Team",
+      "purpose": "AI-powered design generation and knowledge synthesis",
+      "leaderId": "stitch-designer",
+      "memberIds": ["stitch-designer", "notebooklm-expert", "design-expert", "brand-interviewer"]
+    },
+    {
+      "id": "stitch-designer",
+      "type": "leader",
+      "domain": ["stitch", "ui-gen", "prototyping", "figma-alternative", "google-labs", "shadcn", "remotion"],
+      "skillPath": ".agent/skills/stitch-designer",
+      "capabilities": [
+        "screen-generation",
+        "design-token-extraction",
+        "code-export",
+        "flow-prototyping",
+        "design-md-generation",
+        "prompt-enhancement",
+        "react-component-conversion",
+        "shadcn-ui-integration",
+        "remotion-walkthrough",
+        "multi-page-site-loop"
+      ],
+      "externalSkills": [
+        "temp_stitch_skills/skills/design-md",
+        "temp_stitch_skills/skills/enhance-prompt",
+        "temp_stitch_skills/skills/react-components",
+        "temp_stitch_skills/skills/shadcn-ui",
+        "temp_stitch_skills/skills/remotion",
+        "temp_stitch_skills/skills/stitch-loop"
+      ]
+    },
+    {
+      "id": "notebooklm-expert",
+      "type": "specialist",
+      "domain": ["research", "notebooklm", "knowledge-base", "podcast", "audio-overview"],
+      "skillPath": ".agent/skills/notebooklm-expert",
+      "capabilities": ["source-management", "audio-overview-generation", "content-synthesis", "citation-retrieval"]
+    },
+    {
+      "id": "google-developer-knowledge",
+      "type": "specialist",
+      "domain": ["google", "documentation", "android", "firebase", "cloud", "api"],
+      "skillPath": ".agent/skills/google-developer-knowledge",
+      "capabilities": ["knowledge-search", "docs-retrieval"]
     }
   ],
   "edges": [
-    { "from": "research-team", "to": "elite-master", "type": "reports_to" },
-    { "from": "audit-team", "to": "elite-master", "type": "reports_to" },
-    { "from": "seo-team", "to": "elite-master", "type": "reports_to" },
-    { "from": "dev-team", "to": "elite-master", "type": "reports_to" },
-    { "from": "devops-team", "to": "elite-master", "type": "reports_to" },
+    { "from": "research-team", "to": "elite-core", "type": "reports_to" },
+    { "from": "audit-team", "to": "elite-core", "type": "reports_to" },
+    { "from": "seo-team", "to": "elite-core", "type": "reports_to" },
+    { "from": "dev-team", "to": "elite-core", "type": "reports_to" },
+    { "from": "devops-team", "to": "elite-core", "type": "reports_to" },
+    { "from": "architecture-team", "to": "elite-core", "type": "reports_to" },
+    { "from": "elite-core", "to": "systematic-debugging", "type": "uses" },
+    { "from": "elite-core", "to": "intelligent-routing", "type": "uses" },
+    { "from": "elite-core", "to": "behavioral-modes", "type": "uses" },
+    { "from": "ai-pilot", "to": "plan-writing", "type": "uses" },
     { "from": "astro-oracle", "to": "research-team", "type": "member_of" },
     { "from": "context7", "to": "research-team", "type": "member_of" },
     { "from": "api-patterns", "to": "research-team", "type": "member_of" },
@@ -345,8 +406,9 @@
     { "from": "astro-debt-collector", "to": "audit-team", "type": "member_of" },
     { "from": "vulnerability-scanner", "to": "audit-team", "type": "member_of" },
     { "from": "performance-profiling", "to": "audit-team", "type": "member_of" },
-    { "from": "lint-and-validate", "to": "audit-team", "type": "member_of" },
     { "from": "web-design-guidelines", "to": "audit-team", "type": "member_of" },
+    { "from": "graph-integrity-validator", "to": "audit-team", "type": "member_of" },
+    { "from": "astro-performance-expert", "to": "audit-team", "type": "member_of" },
     { "from": "seo-fundamentals", "to": "seo-team", "type": "member_of" },
     { "from": "programmatic-seo", "to": "seo-team", "type": "member_of" },
     { "from": "geo-fundamentals", "to": "seo-team", "type": "member_of" },
@@ -358,6 +420,9 @@
     { "from": "tailwind-v4-architect", "to": "dev-team", "type": "member_of" },
     { "from": "keystatic-expert", "to": "dev-team", "type": "member_of" },
     { "from": "clean-code", "to": "dev-team", "type": "member_of" },
+    { "from": "i18n-localization", "to": "dev-team", "type": "member_of" },
+    { "from": "documentation-templates", "to": "research-team", "type": "member_of" },
+    { "from": "code-review-checklist", "to": "audit-team", "type": "member_of" },
     { "from": "cicd-automation", "to": "devops-team", "type": "member_of" },
     { "from": "production-monitoring", "to": "devops-team", "type": "member_of" },
     { "from": "github-manager", "to": "devops-team", "type": "member_of" },
@@ -371,6 +436,14 @@
     { "from": "app-builder", "to": "database-design", "type": "depends_on" },
     { "from": "webapp-testing", "to": "testing-patterns", "type": "member_of" },
     { "from": "webapp-testing", "to": "tdd-workflow", "type": "depends_on" },
-    { "from": "deployment-procedures", "to": "github-manager", "type": "depends_on" }
+    { "from": "deployment-procedures", "to": "github-manager", "type": "depends_on" },
+    { "from": "creative-team", "to": "elite-core", "type": "reports_to" },
+    { "from": "stitch-designer", "to": "creative-team", "type": "member_of" },
+    { "from": "notebooklm-expert", "to": "creative-team", "type": "member_of" },
+    { "from": "stitch-designer", "to": "design-expert", "type": "depends_on", "metadata": { "requirement": "Design compliance validation" } },
+    { "from": "stitch-designer", "to": "ai-pilot", "type": "routes_to", "metadata": { "condition": "intent === 'implement'", "priority": 1 } },
+    { "from": "notebooklm-expert", "to": "content-crafter", "type": "routes_to", "metadata": { "condition": "intent === 'content'", "priority": 1 } },
+    { "from": "notebooklm-expert", "to": "context7", "type": "depends_on", "metadata": { "requirement": "Documentation discovery" } },
+    { "from": "google-developer-knowledge", "to": "research-team", "type": "member_of" }
   ]
 }

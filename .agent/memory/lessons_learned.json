@@ -1,0 +1,78 @@
+[
+  {
+    "id": "lesson-20260207-001",
+    "timestamp": "2026-02-07T16:45:00+06:00",
+    "errorType": "orphaned-reference",
+    "severity": "high",
+    "description": "Node 'lint-and-validate' existed in agents.graph.json (node + edge) but the skill directory had been deleted.",
+    "rootCause": "Manual deletion of skill folder without updating the graph and other dependent files.",
+    "affectedFiles": [
+      ".agent/graph/agents.graph.json",
+      ".agent/skills/clean-code/SKILL.md"
+    ],
+    "fix": {
+      "actions": [
+        "Removed orphaned node from agents.graph.json:nodes",
+        "Removed orphaned edge from agents.graph.json:edges",
+        "Updated script references in clean-code/SKILL.md to use standard npm commands"
+      ],
+      "commitHash": "pending"
+    },
+    "preventativeRule": {
+      "id": "PR-001",
+      "rule": "Always use the `delete-skill.ts` script or manually scan for backlinks before deleting a skill directory.",
+      "enforcement": "Run `validate-graph-integrity.ts` before every swarm execution and as a pre-commit hook."
+    },
+    "relatedSkills": ["graph-integrity-validator", "clean-code"]
+  },
+  {
+    "id": "lesson-20260207-002",
+    "timestamp": "2026-02-07T16:50:00+06:00",
+    "errorType": "type-mismatch",
+    "severity": "medium",
+    "description": "Swarm.ts called 'executor.run()' which does not exist on the SkillExecutor type. The correct method is 'executor.execute()'.",
+    "rootCause": "Refactoring the SkillExecutor API without updating all consumers.",
+    "affectedFiles": [
+      ".agent/orchestration/swarm.ts"
+    ],
+    "fix": {
+      "actions": [
+        "Changed 'executor.run()' to 'executor.execute()' with the correct argument shape."
+      ],
+      "commitHash": "pending"
+    },
+    "preventativeRule": {
+      "id": "PR-002",
+      "rule": "When changing a public method signature, run 'npx tsc --noEmit' to find all broken consumers before committing.",
+      "enforcement": "Integrate TypeScript check into the CI/CD pipeline."
+    },
+    "relatedSkills": ["clean-code", "systematic-debugging"]
+  },
+  {
+    "id": "lesson-20260207-003",
+    "timestamp": "2026-02-07T16:55:00+06:00",
+    "errorType": "config-migration",
+    "severity": "medium",
+    "description": "Using '@astrojs/tailwind' integration is deprecated for Tailwind v4. Must use '@tailwindcss/vite' plugin directly.",
+    "rootCause": "Following outdated Tailwind v3 patterns for a v4 project.",
+    "affectedFiles": [
+      "astro.config.mjs",
+      "package.json"
+    ],
+    "fix": {
+      "actions": [
+        "Uninstalled @astrojs/tailwind",
+        "Installed @tailwindcss/vite as devDependency",
+        "Updated astro.config.mjs to use vite.plugins array",
+        "Deleted legacy tailwind.config.mjs"
+      ],
+      "commitHash": "pending"
+    },
+    "preventativeRule": {
+      "id": "PR-003",
+      "rule": "Before using any Tailwind-related integration, consult the tailwind-v4-architect skill and Context7 for the current recommended approach.",
+      "enforcement": "The bootstrap.ts script should warn if it detects @astrojs/tailwind in package.json when tailwindcss >= 4.0.0 is present."
+    },
+    "relatedSkills": ["tailwind-v4-architect", "astro-oracle"]
+  }
+]

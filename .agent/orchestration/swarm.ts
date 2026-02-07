@@ -1,12 +1,12 @@
 /**
- * Smile Savers Flow - Swarm Coordinator
+ * Elite Agentic Workforce - Swarm Coordinator
  * 
  * Orchestrates multiple agents working together on complex tasks
  * 
  * @module orchestration/swarm
  */
 
-import { getAgentSkillPath } from './router.js';
+import { getAgentSkillPath, analyzeRequest } from './router.js';
 import { memory } from './memory.js';
 import { validator } from './validators.js';
 import { executor } from './executor.js';
@@ -56,12 +56,12 @@ export class SwarmCoordinator {
 
             try {
                 // ELITE BRIDGE: Invoke the real Execution Engine
-                const execResult = await executor.run(task.agent, task.instruction);
+                const execResult = await executor.execute({ agent: task.agent, instruction: task.instruction } as any);
                 output = execResult.output;
                 success = execResult.success;
                 
-                if (!success && execResult.error) {
-                    output = `Error: ${execResult.error}`;
+                if (!success) {
+                    output = `Execution Failed: ${execResult.output}`;
                 }
             } catch (e: any) {
                 success = false;
@@ -97,100 +97,101 @@ export class SwarmCoordinator {
         console.log(`📋 Swarm: Starting sequential execution of ${tasks.length} tasks`);
 
         const results: Record<string, any> = {};
-        let missionContext = { startTime: new Date().toISOString(), data: {} };
+        let sharedContext = "";
 
         for (const task of tasks) {
             const skillPath = getAgentSkillPath(task.agent);
             console.log(`  ▶️ [${task.agent}] Working...`);
-            console.log(`      Ref: ${skillPath.split(/[\\/]/).pop()}`);
             
             const startTime = Date.now();
 
-            // Real validation for tester agent
-            if (task.agent === 'ai-pilot-tester') {
-                console.log(`    🔍 Running stack validation...`);
-                const check = await validator.validateAll();
-                check.checks.forEach(c => console.log(`      ${c.passed ? '✅' : '❌'} ${c.name}: ${c.message}`));
-            } else {
-                // Simulate deep work
-                await new Promise(r => setTimeout(r, 600));
+            try {
+                // Enhance instruction with shared context from previous agents
+                const enhancedInstruction = sharedContext 
+                    ? `${task.instruction}\n\n[CONTEXT FROM PREVIOUS AGENTS]:\n${sharedContext}`
+                    : task.instruction;
+
+                const execResult = await executor.execute({ 
+                    agent: task.agent, 
+                    instruction: enhancedInstruction 
+                } as any);
+
+                const duration = Date.now() - startTime;
+                
+                if (execResult.success) {
+                    console.log(`  ✅ [${task.agent}] Completed in ${duration}ms`);
+                    sharedContext += `\n--- [Result from ${task.agent}] ---\n${execResult.output}\n`;
+                } else {
+                    console.log(`  ❌ [${task.agent}] Failed: ${execResult.output}`);
+                }
+
+                results[task.agent] = {
+                    status: execResult.success ? 'completed' : 'failed',
+                    output: execResult.output,
+                    duration: `${duration}ms`,
+                    timestamp: new Date().toISOString()
+                };
+
+                memory.recordTaskOutcome(task.instruction, task.agent, execResult.success, duration);
+
+                // Short pathway: If the goal is seemingly achieved, stop the chain
+                if (execResult.output.toLowerCase().includes("task complete") || 
+                    execResult.output.toLowerCase().includes("implementation finished")) {
+                    console.log(`  🏁 [SHORT PATHWAY]: Task achieved early by ${task.agent}. Stopping chain.`);
+                    break;
+                }
+            } catch (error: any) {
+                console.error(`  🚨 [${task.agent}] Fatal error: ${error.message}`);
+                results[task.agent] = { status: 'error', output: error.message };
             }
-
-            const duration = Date.now() - startTime;
-            console.log(`  ✅ [${task.agent}] Completed in ${duration}ms`);
-
-            results[task.agent] = {
-                status: 'completed',
-                duration: `${duration}ms`,
-                timestamp: new Date().toISOString()
-            };
-
-            memory.recordTaskOutcome(task.instruction, task.agent, true, duration);
         }
 
         return {
             success: true,
             results,
-            summary: `Successfully executed pipeline. Total agents engaged: ${tasks.length}.`
+            summary: `Executed pipeline. Shared context accumulated ${sharedContext.length} chars.`
         };
     }
 
     /**
-     * Plan a complex feature implementation with Recovery Protocol
+     * Plan and execute a complex feature implementation with Dynamic Swarm
      */
     async planFeatureImplementation(featureRequest: string): Promise<SwarmResult> {
-        console.log(`🏗️ Swarm: Initiating Bulletproof Development Pipeline`);
+        console.log(`🏗️  Swarm: Initiating Dynamic Agentic Pipeline for: "${featureRequest.substring(0, 30)}..."`);
 
-        // Checkpoint before starting
-        console.log(`🛡️  Creating git-checkpoint: pre-${Date.now()}`);
+        // 1. Analyze and Route
+        const decision = analyzeRequest(featureRequest);
+        console.log(`🎯 Routing Decision: ${decision.mode.toUpperCase()} mode with agents: ${decision.agents.join(', ')}`);
 
-        // Initialize Shared State (The "Findings" Log)
-        console.log(`🧠 Swarm: Initializing Shared State (.agent/memory/findings.md)`);
-        // In a real implementation: fs.writeFileSync('.agent/memory/findings.md', '# Mission Findings\n\n');
+        // 2. Build Pipeline
+        const pipeline: AgentTask[] = decision.agents.map(agentId => ({
+            agent: agentId,
+            instruction: `Process feature request as specialist: ${featureRequest}`
+        }));
 
-        const pipeline: AgentTask[] = [
-            {
-                agent: 'vibe-guard',
-                instruction: `Analyze aesthetic intent: ${featureRequest}`
-            },
-            {
-                agent: 'ai-pilot-architect',
-                instruction: 'Transform intent into technical plan',
-                dependencies: ['vibe-guard']
-            },
-            {
-                agent: 'ai-pilot-coder',
-                instruction: 'Implement code with self-healing config',
-                dependencies: ['ai-pilot-architect']
-            },
-            {
-                agent: 'ai-pilot-tester',
-                instruction: 'Run elite validation + visual audit',
-                dependencies: ['ai-pilot-coder']
-            }
-        ];
-
+        // 3. Execution
         try {
-            return await this.executeSequential(pipeline);
+            if (decision.mode === 'sequential') {
+                return await this.executeSequential(pipeline);
+            } else {
+                return await this.executeParallel(pipeline);
+            }
         } catch (error) {
             console.error(`🚨 Swarm Pipeline Failure: ${error}`);
             
-            // Circuit Breaker
-            if (this.recoveryAttempts >= 3) {
-                return {
-                    success: false,
-                    results: {},
-                    summary: 'CRITICAL: Maximum recovery attempts reached. Manual intervention required.'
-                };
+            // Circuit Breaker & Recovery
+            if (this.recoveryAttempts < 3) {
+                this.recoveryAttempts++;
+                console.log(`🔄 Initiating Recovery Protocol (Attempt ${this.recoveryAttempts})...`);
+                // In a real implementation: engage systematic-debugging agent
+                const debugResult = await executor.execute({ agent: 'systematic-debugging', instruction: `The following swarm pipeline failed: ${error}. Analyze and propose fix.` } as any);
+                console.log(`🛠️  Debug Insight: ${debugResult.output.substring(0, 100)}...`);
             }
 
-            console.log(`🔄 Initiating Recovery Protocol: Reverting to pre-failure state...`);
-            this.recoveryAttempts++;
-            // In a real environment, this would call 'git checkout' or a similar revert mechanism
             return {
                 success: false,
                 results: {},
-                summary: 'Pipeline failed. Recovery protocol engaged. System reverted to safe state.'
+                summary: 'Pipeline failed. Check systematic-debugging logs for details.'
             };
         }
     }

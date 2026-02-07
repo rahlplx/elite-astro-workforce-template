@@ -1,9 +1,9 @@
-# SMILE SAVERS ELITE WORKFORCE
+# Elite Workforce ELITE WORKFORCE
 
 > **Version**: 2.2.0 (Stable)
 > **Identity**: ELITE-WORKFORCE-v2.0-STABLE
 
-This workforce implements the **Astro 6 + Tailwind 4** "Zero-Legacy" stack for the Smile Savers platform.
+This workforce implements the **Astro 6 + Tailwind 4** "Zero-Legacy" stack for the Elite Workforce platform.
 
 ## 1. CORE STANDARDS (QUICK LINKS)
 
@@ -32,11 +32,12 @@ This workforce implements the **Astro 6 + Tailwind 4** "Zero-Legacy" stack for t
 
 ## 4. AVAILABLE SPECIALIST TEAMS
 
-- **Research Team**: `research-coordinator`, `competitor-analyst`, `brand-interviewer`
-- **DevOps Team**: `cicd-automation`, `production-monitoring`
-- **SEO Team**: `seo-expert`, `content-crafter`, `schema-generator`
-- **Audit Team**: `sentinel-auditor`, `compliance-officer`
-- **Development**: `astro-oracle`, `tailwind-architect`, `api-specialist`
+- **Architecture Team**: `elite-core`, `astro-oracle`, `architecture`, `sentinel-auditor`, `google-developer-knowledge`
+- **Research Team**: `astro-oracle`, `context7`, `api-patterns`, `architecture`, `brainstorming`
+- **DevOps Team**: `cicd-automation`, `production-monitoring`, `github-manager`, `deployment-procedures`
+- **SEO Team**: `seo-fundamentals`, `programmatic-seo`, `geo-fundamentals`, `content-crafter`, `schema-generator`
+- **Audit Team**: `sentinel-auditor`, `design-expert`, `astro-debt-collector`, `vulnerability-scanner`, `performance-profiling`, `web-design-guidelines`
+- **Development**: `ai-pilot`, `app-builder`, `astro-5-generator`, `tailwind-v4-architect`, `keystatic-expert`, `clean-code`, `systematic-debugging`, `tdd-workflow`, `testing-patterns`
 
 ---
 *For specialized tasks, reference the [Tooling Index](./TOOLS.md).*

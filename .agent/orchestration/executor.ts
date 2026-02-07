@@ -11,16 +11,19 @@
  * @module orchestration/executor
  */
 
+import { config } from '../config/index.js';
+import { SkillExecutionError } from './errors.js';
 import { readFileSync, existsSync, readdirSync } from 'node:fs';
+
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { spawn } from 'node:child_process';
+import { logger } from './logger.js';
 import { cache } from './cache.js';
-import { riskAssessor, assessRisk, checkpoint, type RiskProfile } from './risk-assessor.js';
 import { memory, type UserPreferences } from './memory.js';
 import { guardrails } from './guardrails.js';
-import { logger } from './logger.js';
 import { learning } from './learning.js';
+import { riskAssessor, assessRisk, type RiskProfile, checkpoint } from './risk-assessor.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const SKILLS_DIR = join(__dirname, '..', 'skills');
@@ -275,10 +278,36 @@ export class SkillExecutor {
     }
 
     /**
-     * Execute a skill based on instruction with self-correction logic
+     * Execute a skill based on instruction with self-correction logic and optimized pathways
      */
     async execute(context: ExecutionContext): Promise<ExecutionResult> {
-        // 0. Learning Layer: Inject Past Insights
+        // 0. Short Pathway: Check memory for success patterns
+        const learningData = memory.getLearningData();
+        const successPattern = learningData.successPatterns[context.instruction.toLowerCase()];
+        if (successPattern && successPattern > 5) {
+            logger.info(`🚀 [SHORT PATHWAY]: High success pattern detected for instruction. Optimizing execution.`);
+            // Potentially load from cache or use a more direct specialized agent
+        }
+
+        // 1. Guardrail: Reasoning Layer: Inject Core Protocols & Past Insights
+        // Load mandatory system rules (2026 Integrity Binding)
+        try {
+            const rulesPath = join(__dirname, '..', 'rules', 'LEARNED_RULES.md');
+            const workflowPath = join(__dirname, '..', 'ELITE_SAFE_WORKFLOW.md');
+            
+            if (existsSync(rulesPath)) {
+                const learnedRules = readFileSync(rulesPath, 'utf8');
+                context.instruction = `[SYSTEM RULES]:\n${learnedRules}\n\n${context.instruction}`;
+            }
+
+            if (existsSync(workflowPath)) {
+                const safeWorkflow = readFileSync(workflowPath, 'utf8');
+                context.instruction = `[MANDATORY PROTOCOL]:\n${safeWorkflow}\n\n${context.instruction}`;
+            }
+        } catch (e: any) {
+            logger.warn(`⚠️ Failed to inject system protocols: ${e.message}`);
+        }
+
         const insights = learning.findRelevantInsights(context.instruction);
         if (insights.length > 0) {
             logger.info(`🧠 Retrieved ${insights.length} insights for task`, { insights });
@@ -310,7 +339,7 @@ export class SkillExecutor {
         }
 
         let attempts = 0;
-        const maxAttempts = 3;
+        const maxAttempts = config.retryPolicy.maxAttempts;
         let lastResult: ExecutionResult | null = null;
 
         while (attempts < maxAttempts) {
@@ -327,22 +356,22 @@ export class SkillExecutor {
                 // Add correction context to instruction for next attempt
                 // We keep the original instruction but append failure context
                 const baseInstruction = context.instruction.split('\n\n[SELF-FIXING CONTEXT]')[0];
-                context.instruction = `${baseInstruction}\n\n[SELF-FIXING CONTEXT]: Attempt ${attempts} failed with: "${result.output}". Please resolve and try again.`;
+                context.instruction = `${baseInstruction}\n\n[SELF-FIXING CONTEXT]: Attempt ${attempts} failed with: "${result.output}".`;
                 
-                // Record error for learning
                 memory.recordError(`Skill ${result.skillUsed} failed: ${result.output}`);
+                
+                // Wait before retry
+                if (attempts < maxAttempts) {
+                    await new Promise(resolve => setTimeout(resolve, config.retryPolicy.backoffMs * attempts));
+                }
             } catch (error: any) {
                 console.error(`❌ Fatal execution error on attempt ${attempts}:`, error.message);
                 if (attempts >= maxAttempts) {
-                    return {
-                        success: false,
-                        skillUsed: 'executor',
-                        output: `Fatal error: ${error.message}`,
-                        tokensUsed: 0,
-                        cached: false,
-                        riskProfile: assessRisk(context.instruction),
-                        duration: 0
-                    };
+                    throw new SkillExecutionError(
+                        `Fatal error after ${attempts} attempts: ${error.message}`,
+                        'executor',
+                        attempts
+                    );
                 }
             }
         }
@@ -364,6 +393,11 @@ export class SkillExecutor {
                 cached: true,
                 duration: 0,
             };
+        }
+
+        // Token usage optimization: Truncate large context inputs
+        if (context.instruction.length > 2000) {
+            context.instruction = context.instruction.substring(0, 1900) + '... [TRUNCATED for token efficiency]';
         }
 
         // Assess risk
@@ -706,10 +740,10 @@ export class SkillExecutor {
             let output = '';
             let error = '';
 
-            process.stdout.on('data', (data) => output += data.toString());
-            process.stderr.on('data', (data) => error += data.toString());
+            scriptProcess.stdout.on('data', (data) => output += data.toString());
+            scriptProcess.stderr.on('data', (data) => error += data.toString());
 
-            process.on('close', (code) => {
+            scriptProcess.on('close', (code) => {
                 if (code === 0) resolve(output);
                 else reject(new Error(`Script failed with code ${code}: ${error}`));
             });

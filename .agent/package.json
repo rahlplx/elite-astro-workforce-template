@@ -1,0 +1,28 @@
+{
+  "name": "@elite/agent-workforce",
+  "version": "1.0.0",
+  "description": "AI Agentic Workforce for Astro Development",
+  "type": "module",
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "scripts": {
+    "start": "node --loader ts-node/esm orchestration/cli.ts",
+    "bootstrap": "node --loader ts-node/esm scripts/bootstrap.ts",
+    "audit": "node --loader ts-node/esm scripts/auto-audit.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "^22.19.9",
+    "ts-node": "^10.9.0",
+    "typescript": "^5.4.0"
+  },
+  "keywords": [
+    "astro",
+    "ai-agent",
+    "agentic",
+    "workforce",
+    "mcp"
+  ],
+  "license": "MIT"
+}

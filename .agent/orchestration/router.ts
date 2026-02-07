@@ -1,5 +1,5 @@
 /**
- * Smile Savers Flow - Router
+ * Elite Agentic Workforce - Router
  * 
  * Analyzes user requests and routes to appropriate agent(s)
  * 
@@ -10,6 +10,7 @@ import { readFileSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { AgentGraphEngine } from '../graph/engine.js';
+import { config } from '../config/index.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const graphEngine = new AgentGraphEngine(join(__dirname, '..', 'graph', 'agents.graph.json'));
@@ -39,42 +40,62 @@ export interface RoutingDecision {
 export function analyzeRequest(userRequest: string): RoutingDecision {
     const normalizedRequest = userRequest.toLowerCase();
     
-    // Find matching agents using the graph engine
+    // 1. Find directly matching agents
     const matchedAgents = graphEngine.findNodesByDomain(normalizedRequest);
-    const sortedAgents = matchedAgents.map(a => a.id);
+    const initialAgents = matchedAgents.map(a => a.id);
 
-    // Determine mode based on complexity and specific keywords
+    // 2. Discover related agents via Teams and Hierarchy
+    const agentsSet = new Set<string>(initialAgents);
+    
+    for (const agentId of initialAgents) {
+        // If it's a leader, recruit the team for a swarm
+        const node = graphEngine.findNodeById(agentId);
+        if (node && (node.type === 'leader' || node.type === 'team')) {
+            const teamMembers = graphEngine.getTeamMembers(agentId);
+            teamMembers.forEach(m => agentsSet.add(m.id));
+        }
 
-    // Determine mode based on complexity and specific keywords
+        // Add supervisors to the loop for safety/audit
+        const hierarchy = graphEngine.getHierarchy(agentId);
+        hierarchy.forEach(h => agentsSet.add(h.id));
+    }
+
+    // 3. Always ensure elite-core is in the loop for complex tasks
+    const isComplex = /plan|implement|verify|deploy|refactor|architecture|setup/i.test(userRequest);
+    if (isComplex || agentsSet.size === 0) {
+        agentsSet.add('elite-core');
+    }
+
+    // 4. Force 'Audit' coverage for high-priority tasks
+    if (/critical|urgent|fix|broken|security/i.test(userRequest)) {
+        agentsSet.add('sentinel-auditor');
+    }
+
+    let agents = Array.from(agentsSet);
+    
+    // 5. Determine Mode
     let mode: 'single' | 'swarm' | 'sequential' = 'single';
-    let agents: string[] = [];
-
-    const isComplex = /plan|implement|verify|deploy|refactor/i.test(userRequest);
-
+    
     if (isComplex) {
         mode = 'sequential';
-        // Always include elite-master for complex tasks, plus any specialists found
-        agents = ['elite-master', ...sortedAgents.filter(a => a !== 'elite-master')].slice(0, 3);
-    } else {
-        if (sortedAgents.length === 0) {
-            agents = ['elite-master'];
-        } else if (sortedAgents.length === 1) {
-            agents = sortedAgents;
-        } else {
-            mode = 'swarm';
-            agents = sortedAgents.slice(0, 3);
-        }
+        // Put elite-core first for planning if sequential
+        agents = ['elite-core', ...agents.filter(a => a !== 'elite-core')];
+    } else if (agents.length > 1) {
+        mode = 'swarm';
     }
+    // Limit to top N agents per task to avoid token bloat
+    const finalAgents = agents.slice(0, config.orchestration.maxAgents);
 
     const priority = determinePriority(normalizedRequest);
 
     return {
         mode,
-        agents,
+        agents: finalAgents,
         priority,
         context: {
             originalRequest: userRequest,
             timestamp: new Date().toISOString(),
+            matchedKeywords: matchedAgents.flatMap(a => (a as any).domain || []), // Heuristic
         },
     };
 }

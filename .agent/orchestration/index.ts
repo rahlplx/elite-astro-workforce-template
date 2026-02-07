@@ -282,6 +282,13 @@ export { logger, type LogLevel, type LogEntry } from './logger.js';
 export { handoff, type HandoffMessage, type HandoffResult } from './handoff.js';
 export { TeamManager } from './team-manager.js';
 
+// NEW: Enhanced orchestration from learning sources
+// Source: UI UX Pro Max, Claude-Supermemory, AI Workflow Gist, Antigravity Kit
+export { signalCapture, SignalCaptureManager, SIGNAL_KEYWORDS } from './signal-capture.js';
+export { recordLesson, searchLessons, checkForSimilarLessons } from './self-improvement.js';
+export { detectSlashCommand, routeMessage, SLASH_COMMANDS, getCommandHelp } from './command-router.js';
+export { EliteOrchestrator, orchestrator } from './elite-orchestrator.js';
+
 /**
  * Get memory statistics
  */

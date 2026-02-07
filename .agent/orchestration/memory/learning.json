@@ -18,7 +18,9 @@
   "errorPatterns": {
     "infinite_recursion_in_useEffect": 12
   },
-  "successPatterns": {},
+  "successPatterns": {
+    "audit the project security": 10
+  },
   "technicalInsights": [
     {
       "category": "Astro 6 / Server Islands",

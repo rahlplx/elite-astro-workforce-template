@@ -1,0 +1,29 @@
+@import "tailwindcss";
+
+@theme {
+  /* Semantic Tokens (oklch preferred for wide gamut) */
+  --color-dental-teal: oklch(0.55 0.15 200); /* Professional Teal */
+  --color-dental-surface: oklch(0.98 0.01 200); /* Clean Background */
+  --color-dental-accent: oklch(0.65 0.25 260); /* Trust Blue */
+
+  /* Fluid Spacing Scale (4px base) */
+  --spacing-1: 0.25rem;
+  --spacing-2: 0.5rem;
+  --spacing-4: 1rem;
+  --spacing-6: 1.5rem;
+  --spacing-8: 2rem;
+  --spacing-12: 3rem;
+  --spacing-16: 4rem;
+}
+
+:root {
+  font-family: "Inter", sans-serif;
+  background-color: var(--color-dental-surface);
+  color: oklch(0.15 0.02 200);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}

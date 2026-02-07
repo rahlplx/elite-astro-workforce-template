@@ -13,12 +13,23 @@
 
 ## 2. AUDITORS (`.agent/scripts/auditors/`)
 
+### A. Website Auditors (Product Quality)
+
 | Auditor | Target | Level |
 | :--- | :--- | :--- |
 | `ui-ux-auditor.ts` | Design system | Quality |
 | `performance-auditor.ts` | Core Web Vitals | Speed |
 | `seo-auditor.ts` | Meta/Technical SEO | Growth |
 | `security-auditor.ts` | Code safety | Safety |
+
+### B. System Auditors (Agentic Integrity)
+
+| Auditor | Target | Level |
+| :--- | :--- | :--- |
+| `skill-auditor.ts` | Skills/YAML/Deps | Integrity |
+| `graph-auditor.ts` | Nodes/Edges/Teams | Structural |
+| `orchestration-auditor.ts` | Router/Swarm/Memory | Reliability |
+| `portability-auditor.ts` | Brand/Path/Template | Portability |
 
 ## 3. MCP SERVER CAPABILITIES
 

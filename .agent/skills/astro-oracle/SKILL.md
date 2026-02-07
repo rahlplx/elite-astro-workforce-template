@@ -1,4 +1,5 @@
 ---
+version: 1.0.0
 name: Astro Oracle
 description: Industry-standard AI Agent for Astro framework development. Provides real-time docs access, best practice enforcement, and autonomous problem-solving.
 ---
@@ -96,7 +97,7 @@ See `doc_index.json` in this skill folder for the full list of indexed pages.
 
 ## 6. Integration with Elite Workflow
 
-Astro Oracle is a **sub-agent** of the "Smile Savers Elite" master skill. It is automatically invoked when:
+Astro Oracle is a **sub-agent** of the "Elite Workforce Elite" master skill. It is automatically invoked when:
 
 1. User mentions "Astro" in their request.
 2. User is modifying `.astro`, `astro.config.mjs`, or `content.config.ts` files.

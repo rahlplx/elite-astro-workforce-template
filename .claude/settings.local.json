@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls -lh \"d:\\\\Github Repository\\\\AI Agent - Agent Swarm, Agentic Workforce\\\\.agent\\\\orchestration\\\\memory\"\" 2>/dev/null || echo \"Directory not found \")",
+      "Bash(ls:*)",
+      "WebFetch(domain:gist.github.com)"
+    ]
+  }
+}

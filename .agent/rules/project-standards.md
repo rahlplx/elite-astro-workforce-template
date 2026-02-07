@@ -1,6 +1,6 @@
-# Smile Savers Project Standards & Agent Rules
+# Elite Workforce Project Standards & Agent Rules
 
-These rules are enforced to ensure clean code, premium UI/UX, and bug-free implementation for the Smile Savers project.
+These rules are enforced to ensure clean code, premium UI/UX, and bug-free implementation for the Elite Workforce project.
 
 ## 1. Core Philosophy: Modular & Clean
 
@@ -38,7 +38,7 @@ These rules are enforced to ensure clean code, premium UI/UX, and bug-free imple
 
 ## 5. Technology Stack Standards (Latest Stable)
 
-- **Framework**: Astro 5.x+ (Latest Stable) - Use Server Islands & Content Layer
+- **Framework**: Astro 6.x+ (Latest Stable) - Use Server Islands & Content Layer
 - **Styling**: Tailwind CSS v4.x (Latest Stable) - Use CSS-native config (`@theme`)
 - **Icons**: Lucide React (Latest) + SVG Sprites
 - **Language**: TypeScript 5.x+ (Strict Mode)
@@ -54,7 +54,7 @@ Before starting any implementation:
     "How do I configure [Tool] in [Version]? use context7"
     ```
 
-2. **Verify Patterns**: Check if `tailwind-patterns` (v4) or `smile-savers-mobile-ui` examples align with the latest docs. If not, prefer the official docs served by Context7.
+2. **Verify Patterns**: Check if `tailwind-v4-architect` or `smile-savers-mobile-ui` examples align with the latest docs. If not, prefer the official docs served by Context7.
 3. **Update Dependencies**: Ensure `package.json` uses `"latest"` or specific recent versions.
 
 ---

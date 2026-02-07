@@ -1,4 +1,5 @@
 ---
+version: 1.0.0
 name: AI Pilot
 description: Autonomous development agent for Astro 6 projects. Handles end-to-end feature implementation with minimal human intervention.
 ---
@@ -7,7 +8,7 @@ description: Autonomous development agent for Astro 6 projects. Handles end-to-e
 
 > **ACTIVATION PHRASE**: "Activate AI Pilot" or "AI Pilot: [task]"
 
-This agent provides autonomous development capabilities for the Smile Savers project, handling complex features from planning to deployment.
+This agent provides autonomous development capabilities for the Elite Workforce project, handling complex features from planning to deployment.
 
 ## 1. Core Capabilities
 

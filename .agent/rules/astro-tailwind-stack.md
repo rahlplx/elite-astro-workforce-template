@@ -1,6 +1,6 @@
 # Astro & Tailwind 2026 Stack Rules
 
-These system rules ensure adherence to the latest 2026 industry standards for the Smile Savers project.
+These system rules ensure adherence to the latest 2026 industry standards for the Elite Workforce project.
 
 ## 1. Technology Stack Enforcement
 

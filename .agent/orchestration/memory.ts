@@ -1,5 +1,5 @@
 /**
- * Smile Savers Flow - Memory System
+ * Elite Workforce Flow - Memory System
  * 
  * Manages context persistence and learning across sessions
  * 
@@ -284,3 +284,7 @@ export class MemoryManager {
 
 // Export singleton instance
 export const memory = new MemoryManager();
+
+// Re-export signal capture for integrated memory system
+export { signalCapture, SignalCaptureManager, SIGNAL_KEYWORDS } from './signal-capture.js';
+export { recordLesson, searchLessons, checkForSimilarLessons } from './self-improvement.js';
