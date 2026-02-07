@@ -23,6 +23,7 @@ import { cache } from './cache.js';
 import { memory, type UserPreferences } from './memory.js';
 import { guardrails } from './guardrails.js';
 import { learning } from './learning.js';
+import { spawnSync } from 'node:child_process';
 import { riskAssessor, assessRisk, type RiskProfile, checkpoint } from './risk-assessor.js';
 import { critic } from './critic.js';
 import { recordLesson } from './self-improvement.js';
@@ -308,6 +309,43 @@ export class SkillExecutor {
             }
         } catch (e: any) {
             logger.warn(`⚠️ Failed to inject system protocols: ${e.message}`);
+        }
+
+        // 0.2 REAL-TIME AUTO-TRIGGER: System Integrity & Red Team Verification
+        const sensitiveTerms = ['orchestration', 'skill', 'agent', 'graph', 'backdoor', 'exploit', 'root'];
+        if (sensitiveTerms.some(term => context.instruction.toLowerCase().includes(term))) {
+            logger.info(`🚨 [AUTO-TRIGGER]: Sensitive architectural operation detected. Running real-time security sweep...`);
+            
+            // Run Integrity Check
+            const integrityCheck = spawnSync('npx', ['tsx', '.agent/scripts/check-integrity.ts'], { encoding: 'utf-8' });
+            if (integrityCheck.status !== 0) {
+                logger.error('❌ [INTEGRITY FAILURE]: Cross-system connections are compromised. Aborting execution.');
+                return {
+                    success: false,
+                    skillUsed: 'system-integrity',
+                    output: 'SYSTEM INTEGRITY VIOLATION: Skill-Agent-Workflow connectivity is broken.',
+                    tokensUsed: 0,
+                    cached: false,
+                    riskProfile: { level: 'BLOCKED', score: 100, requiresBackup: false, estimatedTokens: 0, emoji: '🚫', description: 'Integrity Breach', requiresConfirmation: true, mitigations: [] },
+                    duration: 0
+                };
+            }
+
+            // Run Battle Test (Sub-sampling)
+            const battleTest = spawnSync('npx', ['tsx', '.agent/scripts/battle-test.ts'], { encoding: 'utf-8' });
+            if (battleTest.status !== 0) {
+                logger.error('❌ [SECURITY BREACH]: System failed recent battle test. Lockdown initiated.');
+                return {
+                    success: false,
+                    skillUsed: 'red-team-gate',
+                    output: 'SECURITY LOCKDOWN: Recent battle tests failed. Vulnerability detected.',
+                    tokensUsed: 0,
+                    cached: false,
+                    riskProfile: { level: 'BLOCKED', score: 100, requiresBackup: false, estimatedTokens: 0, emoji: '🔐', description: 'Security Lockdown', requiresConfirmation: true, mitigations: [] },
+                    duration: 0
+                };
+            }
+            logger.info('✅ [AUTO-TRIGGER]: Security sweep passed. Proceeding with caution.');
         }
 
         const insights = learning.findRelevantInsights(context.instruction);

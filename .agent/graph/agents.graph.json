@@ -383,6 +383,14 @@
       "domain": ["google", "documentation", "android", "firebase", "cloud", "api"],
       "skillPath": ".agent/skills/google-developer-knowledge",
       "capabilities": ["knowledge-search", "docs-retrieval"]
+    },
+    {
+      "id": "red-team-team",
+      "type": "team",
+      "name": "Red Team & Hardening",
+      "purpose": "Adversarial simulation and guardrail battle-testing",
+      "leaderId": "vulnerability-scanner",
+      "memberIds": ["vulnerability-scanner", "sentinel-auditor", "graph-integrity-validator", "behavioral-modes"]
     }
   ],
   "edges": [
@@ -444,6 +452,8 @@
     { "from": "stitch-designer", "to": "ai-pilot", "type": "routes_to", "metadata": { "condition": "intent === 'implement'", "priority": 1 } },
     { "from": "notebooklm-expert", "to": "content-crafter", "type": "routes_to", "metadata": { "condition": "intent === 'content'", "priority": 1 } },
     { "from": "notebooklm-expert", "to": "context7", "type": "depends_on", "metadata": { "requirement": "Documentation discovery" } },
-    { "from": "google-developer-knowledge", "to": "research-team", "type": "member_of" }
+    { "from": "google-developer-knowledge", "to": "research-team", "type": "member_of" },
+    { "from": "red-team-team", "to": "elite-core", "type": "reports_to" },
+    { "from": "red-team-team", "to": "audit-team", "type": "collaborates_with" }
   ]
 }
