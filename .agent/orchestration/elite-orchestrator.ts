@@ -19,6 +19,8 @@ import { analyzeBrainstormRequest, formatBrainstormAnalysis, BrainstormContext }
 import { readFileSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { rewoo } from './rewoo.js';
+import { logger } from './logger.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -107,7 +109,7 @@ export class EliteOrchestrator {
 
         try {
             // 1. Intent Sync: Load system knowledge (PR-004)
-            const knowledge = this.loadSystemKnowledge();
+            this.loadSystemKnowledge();
             console.log('📚 Intent Sync: Loaded MANIFEST, Graph, Tokens, Lessons, Protocol');
 
             // 2. Log the request
@@ -121,32 +123,32 @@ export class EliteOrchestrator {
                 return this.executeSlashCommand(routeResult.command, routeResult.args || '', startTime);
             }
 
-            // 3. Check for similar lessons before proceeding
+            // 4. Check for similar lessons before proceeding
             const lessonWarnings = checkForSimilarLessons(userRequest);
             if (lessonWarnings) {
                 lessonsApplied = 1;
                 console.log(lessonWarnings);
             }
 
-            // 4. Analyze with multi-domain BM25 search
+            // 5. Analyze with multi-domain BM25 search
             const brainstormContext = analyzeBrainstormRequest(userRequest);
 
-            // 5. Get routing decision
+            // 6. Get routing decision
             const routing = routeResult.routing || analyzeRequest(userRequest);
             this.logEvent('routing', { decision: routing, brainstorm: brainstormContext });
 
-            // 6. Determine if Socratic Gate should be triggered
+            // 7. Determine if Socratic Gate should be triggered
             if (this.shouldTriggerSocraticGate(brainstormContext, routing)) {
-                return this.triggerSocraticGate(brainstormContext, routing, startTime, lessonsApplied);
+                return await this.triggerSocraticGate(userRequest, brainstormContext, routing, startTime, lessonsApplied);
             }
 
-            // 7. Execute with selected agents
+            // 8. Execute with selected agents
             const response = await this.executeWithAgents(routing, userRequest);
 
-            // 8. Capture signals from response
+            // 9. Capture signals from response
             this.signals.addTurn('agent', response);
 
-            // 9. Record completion
+            // 10. Record completion
             this.logEvent('completion', {
                 success: true,
                 agentsUsed: routing.agents,
@@ -255,23 +257,36 @@ export class EliteOrchestrator {
     /**
      * Trigger Socratic Gate for clarification
      */
-    private triggerSocraticGate(
+    private async triggerSocraticGate(
+        userRequest: string,
         brainstorm: BrainstormContext,
         routing: RoutingDecision,
         startTime: number,
         lessonsApplied: number
-    ): OrchestrationResult {
+    ): Promise<OrchestrationResult> {
         const analysis = formatBrainstormAnalysis(brainstorm);
         const routingInfo = formatRoutingDecision(routing);
+        let response = '';
 
-        const response = `
-🛑 **Socratic Gate Activated**
+        if (routing.mode === 'swarm' || routing.mode === 'sequential') {
+            logger.info(`🧠 [REWOO]: Triggering symbolic planning for swarm request...`);
+            const rewooPlan = await rewoo.generatePlan(userRequest);
+            response += `Routing Request: \`${userRequest}\`\n\n${routingInfo}`;
+            
+            response += `\n\n### Symbolic Task Graph (ReWoo)\n`;
+            rewooPlan.tasks.forEach(task => {
+                response += `- **${task.id}** [${task.agent}]: ${task.instruction} (Deps: ${task.dependencies.join(', ') || 'None'})\n`;
+            });
+        } else {
+            response = `Routing Request: \`${userRequest}\`\n\n${routingInfo}`;
+        }
+
+        response += `
+\n\n🛑 **Socratic Gate Activated**
 
 Before proceeding, I need to understand your requirements better.
 
 ${analysis}
-
-${routingInfo}
 
 ---
 
@@ -290,10 +305,12 @@ ${brainstorm.blockers.map((b, i) => `
 Please answer these questions so I can proceed with the best approach.
 `.trim();
 
+        this.signals.addTurn('agent', response);
+
         return {
             success: true,
             response,
-            agentsUsed: ['brainstorming', 'intelligent-routing'],
+            agentsUsed: routing.agents,
             duration: Date.now() - startTime,
             memorySignals: this.signals.getStats().total,
             lessonsApplied
@@ -301,76 +318,16 @@ Please answer these questions so I can proceed with the best approach.
     }
 
     /**
-     * Execute request with selected agents
+     * Execute with selected agents (Mock implementation)
      */
-    private async executeWithAgents(routing: RoutingDecision, request: string): Promise<string> {
-        const agentList = routing.agents.map(a => `\`@${a}\``).join(' + ');
-
-        let response = `🤖 **Applying: ${agentList}**\n\n`;
-
-        if (routing.mode === 'sequential') {
-            response += `📋 **Mode:** Sequential (agents work in order)\n\n`;
-        } else if (routing.mode === 'swarm') {
-            response += `📋 **Mode:** Swarm (agents work in parallel)\n\n`;
-        }
-
-        response += `**Priority:** ${routing.priority}\n\n`;
-        response += `---\n\n`;
-
-        // Simulate agent execution (in real use, this would invoke actual agents)
-        response += `Processing request with ${routing.agents.length} specialist(s)...\n\n`;
-
-        // Record agent usage in preferences
-        for (const agent of routing.agents) {
-            this.memory.recordAgentUsage(agent);
-        }
-
-        return response;
+    private async executeWithAgents(routing: RoutingDecision, instruction: string): Promise<string> {
+        // In a real system, this would call individual agents or the swarm coordinator
+        return `Execution completed by agents: ${routing.agents.join(', ')} for instruction: ${instruction}`;
     }
-
-    /**
-     * Get current orchestration status
-     */
-    getStatus(): string {
-        const memStats = this.signals.getStats();
-        const lessonStats = this.getLessonStats();
-
-        return `
-## 📊 Orchestration Status
-
-**Session:** ${this.context.sessionId}
-**Started:** ${this.context.startedAt}
-**Mode:** ${this.context.mode}
-**Active Agents:** ${this.context.activeAgents.length > 0 ? this.context.activeAgents.join(', ') : 'None'}
-
-### Memory Signals
-- **Total:** ${memStats.total}
-- **By Category:** ${Object.entries(memStats.byCategory).map(([k, v]) => `${k}: ${v}`).join(', ')}
-
-### Lessons
-- **Total:** ${lessonStats.total}
-- **Recent Tags:** ${lessonStats.recentTags.slice(0, 5).join(', ') || 'None'}
-
-### Available Commands
-${Object.keys(SLASH_COMMANDS).map(c => `- /${c}`).join('\n')}
-`.trim();
-    }
-
-    /**
-     * Record a lesson from this session
-     */
-    recordSessionLesson(lesson: Omit<Lesson, 'date'>): void {
-        recordLesson({
-            ...lesson,
-            date: new Date().toISOString().split('T')[0]
-        });
-    }
-
-    // Private helpers
 
     private createContext(): OrchestrationContext {
         return {
-            sessionId: `orch-${Date.now()}-${Math.random().toString(36).substring(7)}`,
+            sessionId: Math.random().toString(36).substring(7),
             startedAt: new Date().toISOString(),
             mode: 'interactive',
             activeAgents: [],
@@ -379,27 +336,14 @@ ${Object.keys(SLASH_COMMANDS).map(c => `- /${c}`).join('\n')}
     }
 
     private logEvent(type: OrchestrationEvent['type'], data: Record<string, unknown>): void {
-        this.context.history.push({
+        const event: OrchestrationEvent = {
             type,
             timestamp: new Date().toISOString(),
             data
-        });
-    }
-
-    private getLessonStats(): { total: number; recentTags: string[] } {
-        const lessons = searchLessons('');
-        const allTags = lessons.flatMap(l => l.tags);
-        return {
-            total: lessons.length,
-            recentTags: [...new Set(allTags.slice(-10))]
         };
+        this.context.history.push(event);
+        logger.info(`🎭 [ORCHESTRATOR] Event: ${type}`, data);
     }
 }
 
-// Export singleton instance
 export const orchestrator = new EliteOrchestrator();
-
-export default {
-    EliteOrchestrator,
-    orchestrator
-};

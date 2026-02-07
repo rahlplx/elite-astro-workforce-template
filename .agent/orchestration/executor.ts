@@ -314,7 +314,7 @@ export class SkillExecutor {
         // 0.2 REAL-TIME AUTO-TRIGGER: System Integrity & Red Team Verification
         const sensitiveTerms = ['orchestration', 'skill', 'agent', 'graph', 'backdoor', 'exploit', 'root'];
         if (sensitiveTerms.some(term => context.instruction.toLowerCase().includes(term))) {
-            logger.info(`🚨 [AUTO-TRIGGER]: Sensitive architectural operation detected. Running real-time security sweep...`);
+            logger.info(`🚨 [AUTO-TRIGGER]: Sensitive architectural operation detected. Running real-time security sweep... [SECURITY_SWEEP]`);
             
             // Run Integrity Check
             const integrityCheck = spawnSync('npx', ['tsx', '.agent/scripts/check-integrity.ts'], { encoding: 'utf-8' });
@@ -421,7 +421,15 @@ export class SkillExecutor {
                 const baseInstruction = context.instruction.split('\n\n[SELF-FIXING CONTEXT]')[0];
                 context.instruction = `${baseInstruction}\n\n[SELF-FIXING CONTEXT]: Attempt ${attempts} failed with: "${result.output}".`;
                 
-                memory.recordError(`Skill ${result.skillUsed} failed: ${result.output}`);
+                recordLesson({
+                    date: new Date().toISOString().split('T')[0],
+                    category: 'implementation',
+                    failureMode: `Skill ${result.skillUsed} failed after multiple attempts.`,
+                    detectionSignal: result.output,
+                    preventionRule: 'Identify root cause of repeating failure in this component.',
+                    pattern: 'RETRY_EXHAUSTED',
+                    tags: ['failure', result.skillUsed]
+                });
                 
                 // Wait before retry
                 if (attempts < maxAttempts) {

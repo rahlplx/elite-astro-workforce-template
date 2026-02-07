@@ -1,7 +1,7 @@
 {
   "hits": 0,
-  "misses": 1,
+  "misses": 0,
   "evictions": 0,
-  "savedTokens": 1600,
-  "lastCleanup": "2026-02-07T14:08:35.177Z"
+  "savedTokens": 1000,
+  "lastCleanup": "2026-02-07T14:11:01.946Z"
 }

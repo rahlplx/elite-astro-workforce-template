@@ -77,7 +77,7 @@ export class ReWooCoordinator {
         return this.synthesize(goal, results);
     }
 
-    private async generatePlan(goal: string): Promise<SymbolicPlan> {
+    public async generatePlan(goal: string): Promise<SymbolicPlan> {
         // Mocking the "Planner" agent logic
         // This should eventually be an LLM call to generate the JSON plan
         return {
