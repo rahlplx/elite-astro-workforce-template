@@ -274,7 +274,9 @@ export class RiskAssessor {
             'astro.config',
             '.env',
             'AGENTS.md',
-            'AGENT_PROTOCOL.md',
+            'MANIFEST.md',
+            'CONSTITUTION.md',
+            'ELITE_PROTOCOL.md',
             'layout',
             'config',
         ];

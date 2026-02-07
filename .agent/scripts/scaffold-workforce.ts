@@ -34,7 +34,7 @@ async function scaffold() {
     }
 
     // Copy Root Protocol Files
-    const protocolFiles = ['AGENTS.md', 'TOOLS.md', 'AGENT_PROTOCOL.md'];
+    const protocolFiles = ['AGENTS.md', 'TOOLS.md', 'MANIFEST.md'];
     for (const file of protocolFiles) {
         const source = join(CORE_DIR, file);
         const dest = join(agentDir, file);

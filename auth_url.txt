@@ -1,0 +1,8 @@
+[INFO][system] Searching Google Knowledge for "Android CameraX"
+
+­ƒöæ Google Authentication Required
+Please visit this URL to authorize the agent:
+https://accounts.google.com/o/oauth2/v2/auth?client_id=&redirect_uri=http%3A%2F%2Flocalhost&response_type=code&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcloud-platform&access_type=offline
+
+Waiting for authorization...
+Error: Authentication timed out after 5 minutes

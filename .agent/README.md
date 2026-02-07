@@ -7,10 +7,11 @@ This directory contains the complete AI Agent configuration for the Elite Agenti
 ```
 .agent/
 ├── README.md                 # This file
-├── AGENT_PROTOCOL.md         # 🛡️ THE WORKFORCE SOUL (Core Identity)
+├── MANIFEST.md               # 🛡️ THE WORKFORCE SOUL (Core Index)
 ├── mcp-servers.json          # MCP server configurations
-├── skills/                   # Agent skill definitions
-│   ├── astro-oracle/         # Astro framework expert
+├── rules/                    # System Constraints & Constitution
+│   ├── CONSTITUTION.md       # Universal Identity & Protocols
+│   └── ELITE_PROTOCOL.md     # Mandatory Execution Standards
 │   ├── elite-core/           # Master orchestrator
 │   ├── tailwind-v4-architect/# Tailwind CSS v4 expert
 │   ├── context7/             # Documentation fetcher

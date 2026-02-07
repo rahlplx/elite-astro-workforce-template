@@ -1,0 +1,60 @@
+
+[1m[46m RUN [49m[22m [36mv4.0.18 [39m[90mD:/Github Repository/AI Agent - Agent Swarm, Agentic Workforce[39m
+
+ [31mÔØ»[39m .agent/__tests__/executor.test.ts [2m([22m[2m0 test[22m[2m)[22m
+ [31mÔØ»[39m .agent/__tests__/router.test.ts [2m([22m[2m0 test[22m[2m)[22m
+ [32mÔ£ô[39m .agent/__tests__/guardrails.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 19[2mms[22m[39m
+ [32mÔ£ô[39m .agent/__tests__/risk-assessor.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 32[2mms[22m[39m
+
+ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ» Failed Suites 2 ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»
+
+ FAIL  .agent/__tests__/executor.test.ts [ .agent/__tests__/executor.test.ts ]
+Error: Transform failed with 1 error:
+D:/Github Repository/AI Agent - Agent Swarm, Agentic Workforce/.agent/orchestration/executor.ts:21:10: ERROR: Expected ";" but found "execute"
+  Plugin: vite:esbuild
+  File: D:/Github Repository/AI Agent - Agent Swarm, Agentic Workforce/.agent/orchestration/executor.ts:21:10
+  
+  Expected ";" but found "execute"
+  19 |  
+  20 |  // inside SkillExecutor class
+  21 |      async execute(context: ExecutionContext): Promise<ExecutionResult> {
+     |            ^
+  22 |          // ... (lines 280-310 remain similar) ...
+  23 |  
+  
+ ÔØ» failureErrorWithLog node_modules/esbuild/lib/main.js:1467:15
+ ÔØ» node_modules/esbuild/lib/main.js:736:50
+ ÔØ» responseCallbacks.<computed> node_modules/esbuild/lib/main.js:603:9
+ ÔØ» handleIncomingPacket node_modules/esbuild/lib/main.js:658:12
+ ÔØ» Socket.readFromStdout node_modules/esbuild/lib/main.js:581:7
+
+ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»[1/2]ÔÄ»
+
+ FAIL  .agent/__tests__/router.test.ts [ .agent/__tests__/router.test.ts ]
+Error: Transform failed with 1 error:
+D:/Github Repository/AI Agent - Agent Swarm, Agentic Workforce/.agent/orchestration/router.ts:118:0: ERROR: Unexpected "export"
+  Plugin: vite:esbuild
+  File: D:/Github Repository/AI Agent - Agent Swarm, Agentic Workforce/.agent/orchestration/router.ts:118:0
+  
+  Unexpected "export"
+  116|   * Get agent skill path
+  117|   */
+  118|  export function getAgentSkillPath(agentName: string): string {
+     |  ^
+  119|      const skillsDir = join(__dirname, '..', 'skills');
+  120|      return join(skillsDir, agentName, 'SKILL.md');
+  
+ ÔØ» failureErrorWithLog node_modules/esbuild/lib/main.js:1467:15
+ ÔØ» node_modules/esbuild/lib/main.js:736:50
+ ÔØ» responseCallbacks.<computed> node_modules/esbuild/lib/main.js:603:9
+ ÔØ» handleIncomingPacket node_modules/esbuild/lib/main.js:658:12
+ ÔØ» Socket.readFromStdout node_modules/esbuild/lib/main.js:581:7
+
+ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»[2/2]ÔÄ»
+
+
+[2m Test Files [22m [1m[31m2 failed[39m[22m[2m | [22m[1m[32m2 passed[39m[22m[90m (4)[39m
+[2m      Tests [22m [1m[32m14 passed[39m[22m[90m (14)[39m
+[2m   Start at [22m 17:59:11
+[2m   Duration [22m 829ms[2m (transform 497ms, setup 0ms, import 433ms, tests 51ms, environment 1ms)[22m
+
