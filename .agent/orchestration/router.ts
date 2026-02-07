@@ -119,7 +119,12 @@ function determinePriority(request: string): 'high' | 'medium' | 'low' {
  */
 export function getAgentSkillPath(agentName: string): string {
     const skillsDir = join(__dirname, '..', 'skills');
-    return join(skillsDir, agentName, 'SKILL.md');
+    
+    // RED TEAM HARDENING: Prevent path traversal
+    const sanitizedName = agentName.replace(/[\\/]/g, '').toLowerCase();
+    const targetPath = join(skillsDir, sanitizedName, 'SKILL.md');
+
+    return targetPath;
 }
 
 /**

@@ -32,7 +32,13 @@ async function main() {
                 // Only commit if changes exist
                 const status = run('git status --porcelain', true);
                 if (status.trim()) {
-                    run(`git commit -m "${message}"`);
+                    // RED TEAM HARDENING: Use spawnSync for safe argument handling
+                    console.log(`> git commit -m "${message}"`);
+                    const commitResult = spawnSync('git', ['commit', '-m', message], { encoding: 'utf-8' });
+                    if (commitResult.status !== 0) {
+                        throw new Error(`Git commit failed: ${commitResult.stderr}`);
+                    }
+                    console.log(commitResult.stdout);
                     console.log('✅ Committed changes.');
                 } else {
                     console.log('ℹ️ No changes to commit.');

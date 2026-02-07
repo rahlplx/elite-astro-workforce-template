@@ -139,63 +139,17 @@ File to edit: UserService.ts
 
 ---
 
-## Verification Scripts (MANDATORY)
+## Elite Verification (MANDATORY)
 
-> 🔴 **CRITICAL:** Each agent runs ONLY their own skill's scripts after completing work.
+> [!CRITICAL]
+> All changes must be verified using the system's core integrity scripts.
 
-### Agent → Script Mapping
+| Script | Command |
+|-------|---------|
+| **System Integrity** | `npx tsx .agent/scripts/check-integrity.ts` |
+| **Battle Test** | `npx tsx .agent/scripts/battle-test.ts` |
+| **Bootstrap Status** | `npx tsx .agent/scripts/bootstrap.ts --status` |
+| **Type Check** | `npx tsc --noEmit` |
 
-| Agent | Script | Command |
-|-------|--------|---------|
-| **frontend-specialist** | UX Audit | `python .agent/skills/frontend-design/scripts/ux_audit.py .` |
-| **frontend-specialist** | A11y Check | `python .agent/skills/frontend-design/scripts/accessibility_checker.py .` |
-| **backend-specialist** | API Validator | `python .agent/skills/api-patterns/scripts/api_validator.py .` |
-| **mobile-developer** | Mobile Audit | `python .agent/skills/mobile-design/scripts/mobile_audit.py .` |
-| **database-architect** | Schema Validate | `python .agent/skills/database-design/scripts/schema_validator.py .` |
-| **security-auditor** | Security Scan | `python .agent/skills/vulnerability-scanner/scripts/security_scan.py .` |
-| **seo-specialist** | SEO Check | `python .agent/skills/seo-fundamentals/scripts/seo_checker.py .` |
-| **seo-specialist** | GEO Check | `python .agent/skills/geo-fundamentals/scripts/geo_checker.py .` |
-| **performance-optimizer** | Lighthouse | `python .agent/skills/performance-profiling/scripts/lighthouse_audit.py <url>` |
-| **test-engineer** | Test Runner | `python .agent/skills/testing-patterns/scripts/test_runner.py .` |
-| **test-engineer** | Playwright | `python .agent/skills/webapp-testing/scripts/playwright_runner.py <url>` |
-| **Any agent** | Lint Check | `npx eslint .` |
-| **Any agent** | Type Coverage | `npx tsc --noEmit` |
-| **Any agent** | i18n Check | `python .agent/skills/i18n-localization/scripts/i18n_checker.py .` |
-
-> ❌ **WRONG:** `test-engineer` running `ux_audit.py`
-> ✅ **CORRECT:** `frontend-specialist` running `ux_audit.py`
-
----
-
-### 🔴 Script Output Handling (READ → SUMMARIZE → ASK)
-
-**When running a validation script, you MUST:**
-
-1. **Run the script** and capture ALL output
-2. **Parse the output** - identify errors, warnings, and passes
-3. **Summarize to user** in this format:
-
-```markdown
-## Script Results: [script_name.py]
-
-### ❌ Errors Found (X items)
-- [File:Line] Error description 1
-- [File:Line] Error description 2
-
-### ⚠️ Warnings (Y items)
-- [File:Line] Warning description
-
-### ✅ Passed (Z items)
-- Check 1 passed
-- Check 2 passed
-
-**Should I fix the X errors?**
-```
-
-4. **Wait for user confirmation** before fixing
-5. **After fixing** → Re-run script to confirm
-
-> 🔴 **VIOLATION:** Running script and ignoring output = FAILED task.
-> 🔴 **VIOLATION:** Auto-fixing without asking = Not allowed.
-> 🔴 **Rule:** Always READ output → SUMMARIZE → ASK → then fix.
+> 🔴 **Rule:** If any check fails, do not proceed with a GitHub push.
 

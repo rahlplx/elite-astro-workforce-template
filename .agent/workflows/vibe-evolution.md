@@ -58,15 +58,9 @@ description: Detailed roadmap for evolving the system into a "Vibe Coder" friend
     -   **Ability**: "Use this image."
     -   *Workflow*: User drops image -> Agent optimizes (WebP), places in `/public`, updates code reference. No path management for user.
 
-## Phase 5: The "Vibe" Translator (Most Important)
-*Goal: Turn feelings into Tailwind.*
-
-10. **Enhanced Vibe-Guard**:
-    -   **Ability**: Semantic Styling.
-    -   *Workflow*:
-        -   User: "Make it pop more." -> Agent: Increases contrast, adds subtle shadow, maybe a gradient border.
-        -   User: "Too loud." -> Agent: Reduces saturation, removes borders, increases whitespace.
-    -   *Technical Implementation*: Map adjectives ("cozy", "professional", "edgy") to specific `global.css` `@theme` variable shifts.
+9.  **Asset Auto-Handling**:
+    -   **Ability**: "Use this image."
+    -   *Workflow*: User drops image -> Agent optimizes (WebP), places in `/public`, updates code reference. No path management for user.
 
 ## Summary Checklist for the Expert Team
 
@@ -75,4 +69,3 @@ description: Detailed roadmap for evolving the system into a "Vibe Coder" friend
 - [ ] **Feature**: Visual Diffs (Before/After images).
 - [ ] **Ability**: "Undo Everything" (Instant Revert).
 - [ ] **Ability**: "Edit Content Mode" (CMS Setup).
-- [ ] **Ability**: "Vibe Tuning" (Adjective-based styling).
