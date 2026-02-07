@@ -7,6 +7,7 @@ description: UI/UX design specialist for Astro 6 + Tailwind 4 + DaisyUI 5 stack.
 # Design Expert: UI/UX Specialist
 
 > **ACTIVATION PHRASE**: "Activate Design Expert", "Design Expert: [question]", or natural triggers:
+>
 > - "Make it look premium"
 > - "Does this look good?"
 > - "Give it a better vibe"
@@ -187,7 +188,7 @@ This agent is automatically invoked when:
 ### Core Laws
 
 | Law | Principle | Application |
-|-----|-----------|-------------|
+| :--- | :--- | :--- |
 | **Hick's Law** | More choices = slower decisions | Limit options, use progressive disclosure |
 | **Fitts' Law** | Bigger + closer = easier to click | Size CTAs appropriately |
 | **Miller's Law** | ~7 items in working memory | Chunk content into groups |
