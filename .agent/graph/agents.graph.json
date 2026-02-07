@@ -1,0 +1,376 @@
+{
+  "version": "1.1.0",
+  "nodes": [
+    {
+      "id": "elite-master",
+      "type": "orchestrator",
+      "domain": ["management", "orchestration", "quality-gate"],
+      "skillPath": ".agent/skills/elite-master",
+      "capabilities": ["task-delegation", "result-aggregation", "standards-enforcement"]
+    },
+    {
+      "id": "research-team",
+      "type": "team",
+      "name": "Research Team",
+      "purpose": "Discovery, parsing, and synthesis of technical data",
+      "leaderId": "astro-oracle",
+      "memberIds": ["astro-oracle", "context7", "api-patterns", "architecture", "brainstorming"]
+    },
+    {
+      "id": "audit-team",
+      "type": "team",
+      "name": "Audit Team",
+      "purpose": "Comprehensive code and UI/UX verification",
+      "leaderId": "sentinel-auditor",
+      "memberIds": ["sentinel-auditor", "design-expert", "astro-debt-collector", "vulnerability-scanner", "performance-profiling", "lint-and-validate", "web-design-guidelines"]
+    },
+    {
+      "id": "seo-team",
+      "type": "team",
+      "name": "SEO & Growth Team",
+      "purpose": "Search visibility and content performance",
+      "leaderId": "seo-fundamentals",
+      "memberIds": ["seo-fundamentals", "programmatic-seo", "geo-fundamentals", "content-crafter", "schema-generator"]
+    },
+    {
+      "id": "dev-team",
+      "type": "team",
+      "name": "Development Team",
+      "purpose": "Implementation and build automation",
+      "leaderId": "ai-pilot",
+      "memberIds": ["ai-pilot", "app-builder", "astro-5-generator", "tailwind-v4-architect", "keystatic-expert", "clean-code"]
+    },
+    {
+      "id": "devops-team",
+      "type": "team",
+      "name": "DevOps Team",
+      "purpose": "Deployment automation and monitoring",
+      "leaderId": "cicd-automation",
+      "memberIds": ["cicd-automation", "production-monitoring", "github-manager", "deployment-procedures"]
+    },
+    {
+      "id": "astro-oracle",
+      "type": "leader",
+      "domain": ["astro", "framework", "architecture"],
+      "skillPath": ".agent/skills/astro-oracle",
+      "capabilities": ["expert-guidance", "troubleshooting", "best-practices"]
+    },
+    {
+      "id": "sentinel-auditor",
+      "type": "leader",
+      "domain": ["audit", "safety", "quality"],
+      "skillPath": ".agent/skills/sentinel-auditor",
+      "capabilities": ["verification", "impact-analysis", "risk-assessment"]
+    },
+    {
+      "id": "seo-fundamentals",
+      "type": "leader",
+      "domain": ["seo", "visibility", "e-e-a-t"],
+      "skillPath": ".agent/skills/seo-fundamentals",
+      "capabilities": ["keyword-strategy", "technical-seo", "content-validation"]
+    },
+    {
+      "id": "ai-pilot",
+      "type": "leader",
+      "domain": ["automation", "implementation", "coding"],
+      "skillPath": ".agent/skills/ai-pilot",
+      "capabilities": ["autonomous-dev", "self-planning", "error-recovery"]
+    },
+    {
+      "id": "cicd-automation",
+      "type": "leader",
+      "domain": ["cicd", "pipeline", "deployment", "github-actions"],
+      "skillPath": ".agent/skills/cicd-automation",
+      "capabilities": ["pipeline-gen", "workflow-automation", "release-management"]
+    },
+    {
+      "id": "production-monitoring",
+      "type": "specialist",
+      "domain": ["monitoring", "observability", "sentry", "uptime"],
+      "skillPath": ".agent/skills/production-monitoring",
+      "capabilities": ["error-tracking", "performance-monitoring", "health-checks"]
+    },
+    {
+      "id": "schema-generator",
+      "type": "specialist",
+      "domain": ["json-ld", "schema", "structured-data"],
+      "skillPath": ".agent/skills/schema-generator",
+      "capabilities": ["schema.org-generation", "rich-snippets"]
+    },
+    {
+      "id": "content-crafter",
+      "type": "specialist",
+      "domain": ["copywriting", "strategy", "competitor-analysis", "plan", "landing page"],
+      "skillPath": ".agent/skills/content-crafter",
+      "capabilities": ["high-conversion-copy", "market-research", "multi-agent-sync"]
+    },
+    {
+      "id": "app-builder",
+      "type": "specialist",
+      "domain": ["scaffolding", "full-stack", "prototyping"],
+      "skillPath": ".agent/skills/app-builder",
+      "capabilities": ["project-setup", "boilerplate-gen"]
+    },
+    {
+      "id": "design-expert",
+      "type": "specialist",
+      "domain": ["ui", "ux", "design"],
+      "skillPath": ".agent/skills/design-expert",
+      "capabilities": ["styling", "layout", "accessibility"]
+    },
+    {
+      "id": "context7",
+      "type": "specialist",
+      "domain": ["discovery", "documentation"],
+      "skillPath": ".agent/skills/context7",
+      "capabilities": ["web-search", "docs-fetching"]
+    },
+    {
+      "id": "tailwind-v4-architect",
+      "type": "specialist",
+      "domain": ["styling", "css", "tailwind"],
+      "skillPath": ".agent/skills/tailwind-v4-architect",
+      "capabilities": ["theme-config", "modern-css"]
+    },
+    {
+      "id": "api-patterns",
+      "type": "specialist",
+      "domain": ["api", "design", "patterns"],
+      "skillPath": ".agent/skills/api-patterns",
+      "capabilities": ["rest-api", "graphql", "trpc"]
+    },
+    {
+      "id": "architecture",
+      "type": "specialist",
+      "domain": ["system-design", "architecture"],
+      "skillPath": ".agent/skills/architecture",
+      "capabilities": ["adr-creation", "trade-off-analysis"]
+    },
+    {
+      "id": "astro-5-generator",
+      "type": "specialist",
+      "domain": ["astro", "scaffolding"],
+      "skillPath": ".agent/skills/astro-5-generator",
+      "capabilities": ["component-gen", "content-layer"]
+    },
+    {
+      "id": "astro-debt-collector",
+      "type": "specialist",
+      "domain": ["refactoring", "technical-debt"],
+      "skillPath": ".agent/skills/astro-debt-collector",
+      "capabilities": ["dead-code-elimination", "perf-audit"]
+    },
+    {
+      "id": "astro-performance-expert",
+      "type": "specialist",
+      "domain": ["performance", "web-vitals"],
+      "skillPath": ".agent/skills/astro-performance-expert",
+      "capabilities": ["lcp-optimization", "bundle-size-reduction"]
+    },
+    {
+      "id": "behavioral-modes",
+      "type": "specialist",
+      "domain": ["agent-behavior", "modes"],
+      "skillPath": ".agent/skills/behavioral-modes",
+      "capabilities": ["mode-switching", "persona-management"]
+    },
+    {
+      "id": "brainstorming",
+      "type": "specialist",
+      "domain": ["creativity", "planning"],
+      "skillPath": ".agent/skills/brainstorming",
+      "capabilities": ["socratic-questioning", "idea-gen"]
+    },
+    {
+      "id": "brand-interviewer",
+      "type": "specialist",
+      "domain": ["brand", "identity"],
+      "skillPath": ".agent/skills/brand-interviewer",
+      "capabilities": ["brand-discovery", "token-generation"]
+    },
+    {
+      "id": "clean-code",
+      "type": "specialist",
+      "domain": ["code-quality", "standards"],
+      "skillPath": ".agent/skills/clean-code",
+      "capabilities": ["pragmatic-coding", "refactoring"]
+    },
+    {
+      "id": "code-review-checklist",
+      "type": "specialist",
+      "domain": ["review", "quality"],
+      "skillPath": ".agent/skills/code-review-checklist",
+      "capabilities": ["security-review", "best-practices-check"]
+    },
+    {
+      "id": "database-design",
+      "type": "specialist",
+      "domain": ["database", "schema"],
+      "skillPath": ".agent/skills/database-design",
+      "capabilities": ["schema-design", "indexing-strategy"]
+    },
+    {
+      "id": "deployment-procedures",
+      "type": "specialist",
+      "domain": ["deployment", "devops"],
+      "skillPath": ".agent/skills/deployment-procedures",
+      "capabilities": ["rollback-strategy", "verification"]
+    },
+    {
+      "id": "documentation-templates",
+      "type": "specialist",
+      "domain": ["documentation", "sharing"],
+      "skillPath": ".agent/skills/documentation-templates",
+      "capabilities": ["readme-gen", "api-docs"]
+    },
+    {
+      "id": "geo-fundamentals",
+      "type": "specialist",
+      "domain": ["seo", "ai-search"],
+      "skillPath": ".agent/skills/geo-fundamentals",
+      "capabilities": ["perpective-engine-opt", "cite-management"]
+    },
+    {
+      "id": "github-manager",
+      "type": "specialist",
+      "domain": ["git", "github"],
+      "skillPath": ".agent/skills/github-manager",
+      "capabilities": ["pr-management", "sync-automation"]
+    },
+    {
+      "id": "i18n-localization",
+      "type": "specialist",
+      "domain": ["i18n", "localization"],
+      "skillPath": ".agent/skills/i18n-localization",
+      "capabilities": ["translation-management", "rtl-support"]
+    },
+    {
+      "id": "intelligent-routing",
+      "type": "specialist",
+      "domain": ["orchestration", "routing"],
+      "skillPath": ".agent/skills/intelligent-routing",
+      "capabilities": ["agent-selection", "task-routing"]
+    },
+    {
+      "id": "keystatic-expert",
+      "type": "specialist",
+      "domain": ["cms", "keystatic"],
+      "skillPath": ".agent/skills/keystatic-expert",
+      "capabilities": ["schema-config", "content-layer-integration"]
+    },
+    {
+      "id": "lint-and-validate",
+      "type": "specialist",
+      "domain": ["validation", "linting"],
+      "skillPath": ".agent/skills/lint-and-validate",
+      "capabilities": ["eslint-config", "astro-check"]
+    },
+    {
+      "id": "performance-profiling",
+      "type": "specialist",
+      "domain": ["performance", "profiling"],
+      "skillPath": ".agent/skills/performance-profiling",
+      "capabilities": ["runtime-analysis", "bottleneck-id"]
+    },
+    {
+      "id": "plan-writing",
+      "type": "specialist",
+      "domain": ["planning", "strategy"],
+      "skillPath": ".agent/skills/plan-writing",
+      "capabilities": ["implementation-plans", "task-breakdown"]
+    },
+    {
+      "id": "programmatic-seo",
+      "type": "specialist",
+      "domain": ["seo", "automation"],
+      "skillPath": ".agent/skills/programmatic-seo",
+      "capabilities": ["pseo-scaling", "template-generation"]
+    },
+    {
+      "id": "systematic-debugging",
+      "type": "specialist",
+      "domain": ["debugging", "troubleshooting"],
+      "skillPath": ".agent/skills/systematic-debugging",
+      "capabilities": ["root-cause-analysis", "evidence-based-fix"]
+    },
+    {
+      "id": "tdd-workflow",
+      "type": "specialist",
+      "domain": ["testing", "tdd"],
+      "skillPath": ".agent/skills/tdd-workflow",
+      "capabilities": ["red-green-refactor", "unit-testing"]
+    },
+    {
+      "id": "testing-patterns",
+      "type": "specialist",
+      "domain": ["testing", "patterns"],
+      "skillPath": ".agent/skills/testing-patterns",
+      "capabilities": ["mocking-strategy", "integration-tests"]
+    },
+    {
+      "id": "vulnerability-scanner",
+      "type": "specialist",
+      "domain": ["security", "safety"],
+      "skillPath": ".agent/skills/vulnerability-scanner",
+      "capabilities": ["security-audit", "risk-detection"]
+    },
+    {
+      "id": "web-design-guidelines",
+      "type": "specialist",
+      "domain": ["design", "standards"],
+      "skillPath": ".agent/skills/web-design-guidelines",
+      "capabilities": ["a11y-check", "ux-audit"]
+    },
+    {
+      "id": "webapp-testing",
+      "type": "specialist",
+      "domain": ["e2e", "playwright"],
+      "skillPath": ".agent/skills/webapp-testing",
+      "capabilities": ["browser-testing", "visual-diff"]
+    }
+  ],
+  "edges": [
+    { "from": "research-team", "to": "elite-master", "type": "reports_to" },
+    { "from": "audit-team", "to": "elite-master", "type": "reports_to" },
+    { "from": "seo-team", "to": "elite-master", "type": "reports_to" },
+    { "from": "dev-team", "to": "elite-master", "type": "reports_to" },
+    { "from": "devops-team", "to": "elite-master", "type": "reports_to" },
+    { "from": "astro-oracle", "to": "research-team", "type": "member_of" },
+    { "from": "context7", "to": "research-team", "type": "member_of" },
+    { "from": "api-patterns", "to": "research-team", "type": "member_of" },
+    { "from": "architecture", "to": "research-team", "type": "member_of" },
+    { "from": "brainstorming", "to": "research-team", "type": "member_of" },
+    { "from": "sentinel-auditor", "to": "audit-team", "type": "member_of" },
+    { "from": "design-expert", "to": "audit-team", "type": "member_of" },
+    { "from": "astro-debt-collector", "to": "audit-team", "type": "member_of" },
+    { "from": "vulnerability-scanner", "to": "audit-team", "type": "member_of" },
+    { "from": "performance-profiling", "to": "audit-team", "type": "member_of" },
+    { "from": "lint-and-validate", "to": "audit-team", "type": "member_of" },
+    { "from": "web-design-guidelines", "to": "audit-team", "type": "member_of" },
+    { "from": "seo-fundamentals", "to": "seo-team", "type": "member_of" },
+    { "from": "programmatic-seo", "to": "seo-team", "type": "member_of" },
+    { "from": "geo-fundamentals", "to": "seo-team", "type": "member_of" },
+    { "from": "content-crafter", "to": "seo-team", "type": "member_of" },
+    { "from": "schema-generator", "to": "seo-team", "type": "member_of" },
+    { "from": "ai-pilot", "to": "dev-team", "type": "member_of" },
+    { "from": "app-builder", "to": "dev-team", "type": "member_of" },
+    { "from": "astro-5-generator", "to": "dev-team", "type": "member_of" },
+    { "from": "tailwind-v4-architect", "to": "dev-team", "type": "member_of" },
+    { "from": "keystatic-expert", "to": "dev-team", "type": "member_of" },
+    { "from": "clean-code", "to": "dev-team", "type": "member_of" },
+    { "from": "cicd-automation", "to": "devops-team", "type": "member_of" },
+    { "from": "production-monitoring", "to": "devops-team", "type": "member_of" },
+    { "from": "github-manager", "to": "devops-team", "type": "member_of" },
+    { "from": "deployment-procedures", "to": "devops-team", "type": "member_of" },
+    { "from": "ai-pilot", "to": "astro-oracle", "type": "depends_on", "metadata": { "requirement": "Core framework knowledge" } },
+    { "from": "ai-pilot", "to": "tailwind-v4-architect", "type": "depends_on", "metadata": { "requirement": "Styling implementation" } },
+    { "from": "content-crafter", "to": "context7", "type": "routes_to", "metadata": { "condition": "intent === 'research'", "priority": 1 } },
+    { "from": "content-crafter", "to": "seo-fundamentals", "type": "routes_to", "metadata": { "condition": "intent === 'validate'", "priority": 1 } },
+    { "from": "content-crafter", "to": "brand-interviewer", "type": "routes_to", "metadata": { "condition": "intent === 'brand-check'", "priority": 2 } },
+    { "from": "app-builder", "to": "architecture", "type": "depends_on" },
+    { "from": "app-builder", "to": "database-design", "type": "depends_on" },
+    { "from": "webapp-testing", "to": "testing-patterns", "type": "member_of" },
+    { "from": "webapp-testing", "to": "tdd-workflow", "type": "depends_on" },
+    { "from": "deployment-procedures", "to": "github-manager", "type": "depends_on" }
+  ]
+}

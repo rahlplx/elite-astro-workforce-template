@@ -1,0 +1,20 @@
+{
+    "smile-savers": {
+        "colors": {
+            "primary": "#0D9488",
+            "surface": "#FFFFFF",
+            "text": "#111827",
+            "hero-text": "#FFFFFF"
+        },
+        "fonts": {
+            "sans": "Inter, system-ui"
+        },
+        "spacing": {
+            "gutter": "2rem"
+        },
+        "radius": "12px",
+        "shadows": {
+            "subtle": "0 4px 12px rgba(0,0,0,0.05)"
+        }
+    }
+}

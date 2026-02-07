@@ -1,0 +1,147 @@
+{
+  "/en/install-and-setup/": {
+    "title": "Install Astro",
+    "summary": ".action:where(.astro-vnzlvqnm){gap:.5em;align-items:center;border-radius:999rem;padding:.5rem 1.125rem;color:var(--sl-color-white);line-height:1.1875;text-decoration:none;font-size:var(--sl-text-sm)}.action:where(.astro-vnzlvqnm).primary,.action:where(.astro-vnzlvqnm).primary:hover{background:var(--sl-color-text-accent);color:var(--sl-color-black)}.action:where(.astro-vnzlvqnm).secondary{background:var(--sl-color-black);border:2px solid}.action:where(.astro-vnzlvqnm).minimal{padding-inline:0}@me",
+    "fetchedAt": "2026-02-04T14:14:17.381Z"
+  },
+  "/en/editor-setup/": {
+    "title": "Editor Setup",
+    "summary": ".action:where(.astro-vnzlvqnm){gap:.5em;align-items:center;border-radius:999rem;padding:.5rem 1.125rem;color:var(--sl-color-white);line-height:1.1875;text-decoration:none;font-size:var(--sl-text-sm)}.action:where(.astro-vnzlvqnm).primary,.action:where(.astro-vnzlvqnm).primary:hover{background:var(--sl-color-text-accent);color:var(--sl-color-black)}.action:where(.astro-vnzlvqnm).secondary{background:var(--sl-color-black);border:2px solid}.action:where(.astro-vnzlvqnm).minimal{padding-inline:0}@me",
+    "fetchedAt": "2026-02-04T14:14:17.973Z"
+  },
+  "/en/upgrade-astro/": {
+    "title": "Upgrade Astro",
+    "summary": ".action:where(.astro-vnzlvqnm){gap:.5em;align-items:center;border-radius:999rem;padding:.5rem 1.125rem;color:var(--sl-color-white);line-height:1.1875;text-decoration:none;font-size:var(--sl-text-sm)}.action:where(.astro-vnzlvqnm).primary,.action:where(.astro-vnzlvqnm).primary:hover{background:var(--sl-color-text-accent);color:var(--sl-color-black)}.action:where(.astro-vnzlvqnm).secondary{background:var(--sl-color-black);border:2px solid}.action:where(.astro-vnzlvqnm).minimal{padding-inline:0}@me",
+    "fetchedAt": "2026-02-04T14:14:18.565Z"
+  },
+  "/en/basics/project-structure/": {
+    "title": "Project Structure",
+    "summary": ".action:where(.astro-vnzlvqnm){gap:.5em;align-items:center;border-radius:999rem;padding:.5rem 1.125rem;color:var(--sl-color-white);line-height:1.1875;text-decoration:none;font-size:var(--sl-text-sm)}.action:where(.astro-vnzlvqnm).primary,.action:where(.astro-vnzlvqnm).primary:hover{background:var(--sl-color-text-accent);color:var(--sl-color-black)}.action:where(.astro-vnzlvqnm).secondary{background:var(--sl-color-black);border:2px solid}.action:where(.astro-vnzlvqnm).minimal{padding-inline:0}@me",
+    "fetchedAt": "2026-02-04T14:14:19.186Z"
+  },
+  "/en/basics/astro-components/": {
+    "title": "Components",
+    "summary": ".action:where(.astro-vnzlvqnm){gap:.5em;align-items:center;border-radius:999rem;padding:.5rem 1.125rem;color:var(--sl-color-white);line-height:1.1875;text-decoration:none;font-size:var(--sl-text-sm)}.action:where(.astro-vnzlvqnm).primary,.action:where(.astro-vnzlvqnm).primary:hover{background:var(--sl-color-text-accent);color:var(--sl-color-black)}.action:where(.astro-vnzlvqnm).secondary{background:var(--sl-color-black);border:2px solid}.action:where(.astro-vnzlvqnm).minimal{padding-inline:0}@me",
+    "fetchedAt": "2026-02-04T14:14:19.813Z"
+  },
+  "/en/basics/astro-pages/": {
+    "title": "Pages",
+    "summary": ".action:where(.astro-vnzlvqnm){gap:.5em;align-items:center;border-radius:999rem;padding:.5rem 1.125rem;color:var(--sl-color-white);line-height:1.1875;text-decoration:none;font-size:var(--sl-text-sm)}.action:where(.astro-vnzlvqnm).primary,.action:where(.astro-vnzlvqnm).primary:hover{background:var(--sl-color-text-accent);color:var(--sl-color-black)}.action:where(.astro-vnzlvqnm).secondary{background:var(--sl-color-black);border:2px solid}.action:where(.astro-vnzlvqnm).minimal{padding-inline:0}@me",
+    "fetchedAt": "2026-02-04T14:14:20.420Z"
+  },
+  "/en/basics/layouts/": {
+    "title": "Layouts",
+    "summary": ".action:where(.astro-vnzlvqnm){gap:.5em;align-items:center;border-radius:999rem;padding:.5rem 1.125rem;color:var(--sl-color-white);line-height:1.1875;text-decoration:none;font-size:var(--sl-text-sm)}.action:where(.astro-vnzlvqnm).primary,.action:where(.astro-vnzlvqnm).primary:hover{background:var(--sl-color-text-accent);color:var(--sl-color-black)}.action:where(.astro-vnzlvqnm).secondary{background:var(--sl-color-black);border:2px solid}.action:where(.astro-vnzlvqnm).minimal{padding-inline:0}@me",
+    "fetchedAt": "2026-02-04T14:14:21.017Z"
+  },
+  "/en/guides/routing/": {
+    "title": "Routing",
+    "summary": ".action:where(.astro-vnzlvqnm){gap:.5em;align-items:center;border-radius:999rem;padding:.5rem 1.125rem;color:var(--sl-color-white);line-height:1.1875;text-decoration:none;font-size:var(--sl-text-sm)}.action:where(.astro-vnzlvqnm).primary,.action:where(.astro-vnzlvqnm).primary:hover{background:var(--sl-color-text-accent);color:var(--sl-color-black)}.action:where(.astro-vnzlvqnm).secondary{background:var(--sl-color-black);border:2px solid}.action:where(.astro-vnzlvqnm).minimal{padding-inline:0}@me",
+    "fetchedAt": "2026-02-04T14:14:21.643Z"
+  },
+  "/en/concepts/islands/": {
+    "title": "Astro Islands",
+    "summary": ".action:where(.astro-vnzlvqnm){gap:.5em;align-items:center;border-radius:999rem;padding:.5rem 1.125rem;color:var(--sl-color-white);line-height:1.1875;text-decoration:none;font-size:var(--sl-text-sm)}.action:where(.astro-vnzlvqnm).primary,.action:where(.astro-vnzlvqnm).primary:hover{background:var(--sl-color-text-accent);color:var(--sl-color-black)}.action:where(.astro-vnzlvqnm).secondary{background:var(--sl-color-black);border:2px solid}.action:where(.astro-vnzlvqnm).minimal{padding-inline:0}@me",
+    "fetchedAt": "2026-02-04T14:14:22.234Z"
+  },
+  "/en/guides/view-transitions/": {
+    "title": "View Transitions",
+    "summary": ".action:where(.astro-vnzlvqnm){gap:.5em;align-items:center;border-radius:999rem;padding:.5rem 1.125rem;color:var(--sl-color-white);line-height:1.1875;text-decoration:none;font-size:var(--sl-text-sm)}.action:where(.astro-vnzlvqnm).primary,.action:where(.astro-vnzlvqnm).primary:hover{background:var(--sl-color-text-accent);color:var(--sl-color-black)}.action:where(.astro-vnzlvqnm).secondary{background:var(--sl-color-black);border:2px solid}.action:where(.astro-vnzlvqnm).minimal{padding-inline:0}@me",
+    "fetchedAt": "2026-02-04T14:14:22.860Z"
+  },
+  "/en/guides/content-collections/": {
+    "title": "Content Collections",
+    "summary": ".action:where(.astro-vnzlvqnm){gap:.5em;align-items:center;border-radius:999rem;padding:.5rem 1.125rem;color:var(--sl-color-white);line-height:1.1875;text-decoration:none;font-size:var(--sl-text-sm)}.action:where(.astro-vnzlvqnm).primary,.action:where(.astro-vnzlvqnm).primary:hover{background:var(--sl-color-text-accent);color:var(--sl-color-black)}.action:where(.astro-vnzlvqnm).secondary{background:var(--sl-color-black);border:2px solid}.action:where(.astro-vnzlvqnm).minimal{padding-inline:0}@me",
+    "fetchedAt": "2026-02-04T14:14:23.483Z"
+  },
+  "/en/reference/content-layer-api/": {
+    "title": "Content Layer API",
+    "summary": "Fetch failed",
+    "fetchedAt": "2026-02-04T14:14:24.249Z"
+  },
+  "/en/guides/markdown-content/": {
+    "title": "Markdown & MDX",
+    "summary": ".action:where(.astro-vnzlvqnm){gap:.5em;align-items:center;border-radius:999rem;padding:.5rem 1.125rem;color:var(--sl-color-white);line-height:1.1875;text-decoration:none;font-size:var(--sl-text-sm)}.action:where(.astro-vnzlvqnm).primary,.action:where(.astro-vnzlvqnm).primary:hover{background:var(--sl-color-text-accent);color:var(--sl-color-black)}.action:where(.astro-vnzlvqnm).secondary{background:var(--sl-color-black);border:2px solid}.action:where(.astro-vnzlvqnm).minimal{padding-inline:0}@me",
+    "fetchedAt": "2026-02-04T14:14:24.841Z"
+  },
+  "/en/guides/on-demand-rendering/": {
+    "title": "On-Demand Rendering (SSR)",
+    "summary": ".action:where(.astro-vnzlvqnm){gap:.5em;align-items:center;border-radius:999rem;padding:.5rem 1.125rem;color:var(--sl-color-white);line-height:1.1875;text-decoration:none;font-size:var(--sl-text-sm)}.action:where(.astro-vnzlvqnm).primary,.action:where(.astro-vnzlvqnm).primary:hover{background:var(--sl-color-text-accent);color:var(--sl-color-black)}.action:where(.astro-vnzlvqnm).secondary{background:var(--sl-color-black);border:2px solid}.action:where(.astro-vnzlvqnm).minimal{padding-inline:0}@me",
+    "fetchedAt": "2026-02-04T14:14:25.432Z"
+  },
+  "/en/guides/endpoints/": {
+    "title": "Endpoints",
+    "summary": ".action:where(.astro-vnzlvqnm){gap:.5em;align-items:center;border-radius:999rem;padding:.5rem 1.125rem;color:var(--sl-color-white);line-height:1.1875;text-decoration:none;font-size:var(--sl-text-sm)}.action:where(.astro-vnzlvqnm).primary,.action:where(.astro-vnzlvqnm).primary:hover{background:var(--sl-color-text-accent);color:var(--sl-color-black)}.action:where(.astro-vnzlvqnm).secondary{background:var(--sl-color-black);border:2px solid}.action:where(.astro-vnzlvqnm).minimal{padding-inline:0}@me",
+    "fetchedAt": "2026-02-04T14:14:26.026Z"
+  },
+  "/en/guides/middleware/": {
+    "title": "Middleware",
+    "summary": ".action:where(.astro-vnzlvqnm){gap:.5em;align-items:center;border-radius:999rem;padding:.5rem 1.125rem;color:var(--sl-color-white);line-height:1.1875;text-decoration:none;font-size:var(--sl-text-sm)}.action:where(.astro-vnzlvqnm).primary,.action:where(.astro-vnzlvqnm).primary:hover{background:var(--sl-color-text-accent);color:var(--sl-color-black)}.action:where(.astro-vnzlvqnm).secondary{background:var(--sl-color-black);border:2px solid}.action:where(.astro-vnzlvqnm).minimal{padding-inline:0}@me",
+    "fetchedAt": "2026-02-04T14:14:26.620Z"
+  },
+  "/en/guides/actions/": {
+    "title": "Actions",
+    "summary": ".action:where(.astro-vnzlvqnm){gap:.5em;align-items:center;border-radius:999rem;padding:.5rem 1.125rem;color:var(--sl-color-white);line-height:1.1875;text-decoration:none;font-size:var(--sl-text-sm)}.action:where(.astro-vnzlvqnm).primary,.action:where(.astro-vnzlvqnm).primary:hover{background:var(--sl-color-text-accent);color:var(--sl-color-black)}.action:where(.astro-vnzlvqnm).secondary{background:var(--sl-color-black);border:2px solid}.action:where(.astro-vnzlvqnm).minimal{padding-inline:0}@me",
+    "fetchedAt": "2026-02-04T14:14:27.247Z"
+  },
+  "/en/guides/sessions/": {
+    "title": "Sessions",
+    "summary": ".action:where(.astro-vnzlvqnm){gap:.5em;align-items:center;border-radius:999rem;padding:.5rem 1.125rem;color:var(--sl-color-white);line-height:1.1875;text-decoration:none;font-size:var(--sl-text-sm)}.action:where(.astro-vnzlvqnm).primary,.action:where(.astro-vnzlvqnm).primary:hover{background:var(--sl-color-text-accent);color:var(--sl-color-black)}.action:where(.astro-vnzlvqnm).secondary{background:var(--sl-color-black);border:2px solid}.action:where(.astro-vnzlvqnm).minimal{padding-inline:0}@me",
+    "fetchedAt": "2026-02-04T14:14:28.060Z"
+  },
+  "/en/guides/server-islands/": {
+    "title": "Server Islands",
+    "summary": ".action:where(.astro-vnzlvqnm){gap:.5em;align-items:center;border-radius:999rem;padding:.5rem 1.125rem;color:var(--sl-color-white);line-height:1.1875;text-decoration:none;font-size:var(--sl-text-sm)}.action:where(.astro-vnzlvqnm).primary,.action:where(.astro-vnzlvqnm).primary:hover{background:var(--sl-color-text-accent);color:var(--sl-color-black)}.action:where(.astro-vnzlvqnm).secondary{background:var(--sl-color-black);border:2px solid}.action:where(.astro-vnzlvqnm).minimal{padding-inline:0}@me",
+    "fetchedAt": "2026-02-04T14:14:28.650Z"
+  },
+  "/en/guides/cms/": {
+    "title": "CMS Guides",
+    "summary": ".action:where(.astro-vnzlvqnm){gap:.5em;align-items:center;border-radius:999rem;padding:.5rem 1.125rem;color:var(--sl-color-white);line-height:1.1875;text-decoration:none;font-size:var(--sl-text-sm)}.action:where(.astro-vnzlvqnm).primary,.action:where(.astro-vnzlvqnm).primary:hover{background:var(--sl-color-text-accent);color:var(--sl-color-black)}.action:where(.astro-vnzlvqnm).secondary{background:var(--sl-color-black);border:2px solid}.action:where(.astro-vnzlvqnm).minimal{padding-inline:0}@me",
+    "fetchedAt": "2026-02-04T14:14:29.457Z"
+  },
+  "/en/guides/backend/": {
+    "title": "Backend Services",
+    "summary": ".action:where(.astro-vnzlvqnm){gap:.5em;align-items:center;border-radius:999rem;padding:.5rem 1.125rem;color:var(--sl-color-white);line-height:1.1875;text-decoration:none;font-size:var(--sl-text-sm)}.action:where(.astro-vnzlvqnm).primary,.action:where(.astro-vnzlvqnm).primary:hover{background:var(--sl-color-text-accent);color:var(--sl-color-black)}.action:where(.astro-vnzlvqnm).secondary{background:var(--sl-color-black);border:2px solid}.action:where(.astro-vnzlvqnm).minimal{padding-inline:0}@me",
+    "fetchedAt": "2026-02-04T14:14:30.937Z"
+  },
+  "/en/guides/authentication/": {
+    "title": "Authentication",
+    "summary": ".action:where(.astro-vnzlvqnm){gap:.5em;align-items:center;border-radius:999rem;padding:.5rem 1.125rem;color:var(--sl-color-white);line-height:1.1875;text-decoration:none;font-size:var(--sl-text-sm)}.action:where(.astro-vnzlvqnm).primary,.action:where(.astro-vnzlvqnm).primary:hover{background:var(--sl-color-text-accent);color:var(--sl-color-black)}.action:where(.astro-vnzlvqnm).secondary{background:var(--sl-color-black);border:2px solid}.action:where(.astro-vnzlvqnm).minimal{padding-inline:0}@me",
+    "fetchedAt": "2026-02-04T14:14:31.742Z"
+  },
+  "/en/guides/deploy/": {
+    "title": "Deploy",
+    "summary": ".action:where(.astro-vnzlvqnm){gap:.5em;align-items:center;border-radius:999rem;padding:.5rem 1.125rem;color:var(--sl-color-white);line-height:1.1875;text-decoration:none;font-size:var(--sl-text-sm)}.action:where(.astro-vnzlvqnm).primary,.action:where(.astro-vnzlvqnm).primary:hover{background:var(--sl-color-text-accent);color:var(--sl-color-black)}.action:where(.astro-vnzlvqnm).secondary{background:var(--sl-color-black);border:2px solid}.action:where(.astro-vnzlvqnm).minimal{padding-inline:0}@me",
+    "fetchedAt": "2026-02-04T14:14:32.333Z"
+  },
+  "/en/guides/styling/": {
+    "title": "Styling",
+    "summary": ".action:where(.astro-vnzlvqnm){gap:.5em;align-items:center;border-radius:999rem;padding:.5rem 1.125rem;color:var(--sl-color-white);line-height:1.1875;text-decoration:none;font-size:var(--sl-text-sm)}.action:where(.astro-vnzlvqnm).primary,.action:where(.astro-vnzlvqnm).primary:hover{background:var(--sl-color-text-accent);color:var(--sl-color-black)}.action:where(.astro-vnzlvqnm).secondary{background:var(--sl-color-black);border:2px solid}.action:where(.astro-vnzlvqnm).minimal{padding-inline:0}@me",
+    "fetchedAt": "2026-02-04T14:14:32.958Z"
+  },
+  "/en/reference/configuration-reference/": {
+    "title": "Configuration",
+    "summary": ".action:where(.astro-vnzlvqnm){gap:.5em;align-items:center;border-radius:999rem;padding:.5rem 1.125rem;color:var(--sl-color-white);line-height:1.1875;text-decoration:none;font-size:var(--sl-text-sm)}.action:where(.astro-vnzlvqnm).primary,.action:where(.astro-vnzlvqnm).primary:hover{background:var(--sl-color-text-accent);color:var(--sl-color-black)}.action:where(.astro-vnzlvqnm).secondary{background:var(--sl-color-black);border:2px solid}.action:where(.astro-vnzlvqnm).minimal{padding-inline:0}@me",
+    "fetchedAt": "2026-02-04T14:14:33.583Z"
+  },
+  "/en/reference/cli-reference/": {
+    "title": "CLI Reference",
+    "summary": ".action:where(.astro-vnzlvqnm){gap:.5em;align-items:center;border-radius:999rem;padding:.5rem 1.125rem;color:var(--sl-color-white);line-height:1.1875;text-decoration:none;font-size:var(--sl-text-sm)}.action:where(.astro-vnzlvqnm).primary,.action:where(.astro-vnzlvqnm).primary:hover{background:var(--sl-color-text-accent);color:var(--sl-color-black)}.action:where(.astro-vnzlvqnm).secondary{background:var(--sl-color-black);border:2px solid}.action:where(.astro-vnzlvqnm).minimal{padding-inline:0}@me",
+    "fetchedAt": "2026-02-04T14:14:34.561Z"
+  },
+  "/en/reference/error-reference/": {
+    "title": "Error Reference",
+    "summary": ".action:where(.astro-vnzlvqnm){gap:.5em;align-items:center;border-radius:999rem;padding:.5rem 1.125rem;color:var(--sl-color-white);line-height:1.1875;text-decoration:none;font-size:var(--sl-text-sm)}.action:where(.astro-vnzlvqnm).primary,.action:where(.astro-vnzlvqnm).primary:hover{background:var(--sl-color-text-accent);color:var(--sl-color-black)}.action:where(.astro-vnzlvqnm).secondary{background:var(--sl-color-black);border:2px solid}.action:where(.astro-vnzlvqnm).minimal{padding-inline:0}@me",
+    "fetchedAt": "2026-02-04T14:14:35.492Z"
+  },
+  "/en/reference/astro-template-directives/": {
+    "title": "Template Syntax",
+    "summary": "Fetch failed",
+    "fetchedAt": "2026-02-04T14:14:36.273Z"
+  },
+  "/en/reference/built-in-components/": {
+    "title": "Built-in Components",
+    "summary": "Fetch failed",
+    "fetchedAt": "2026-02-04T14:14:37.052Z"
+  }
+}

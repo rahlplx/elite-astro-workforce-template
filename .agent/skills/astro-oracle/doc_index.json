@@ -1,0 +1,305 @@
+{
+    "_meta": {
+        "version": "1.0.0",
+        "source": "https://docs.astro.build/en/",
+        "lastUpdated": "2026-02-04",
+        "description": "Indexed knowledge base for Astro Oracle AI Agent"
+    },
+    "categories": {
+        "getting_started": {
+            "description": "Installation and initial setup guides",
+            "pages": [
+                {
+                    "title": "Install Astro",
+                    "path": "/en/install-and-setup/",
+                    "keywords": [
+                        "install",
+                        "setup",
+                        "new project"
+                    ]
+                },
+                {
+                    "title": "Editor Setup",
+                    "path": "/en/editor-setup/",
+                    "keywords": [
+                        "vscode",
+                        "editor",
+                        "extensions"
+                    ]
+                },
+                {
+                    "title": "Upgrade Astro",
+                    "path": "/en/upgrade-astro/",
+                    "keywords": [
+                        "upgrade",
+                        "update",
+                        "version"
+                    ]
+                }
+            ]
+        },
+        "core_concepts": {
+            "description": "Fundamental Astro architecture patterns",
+            "pages": [
+                {
+                    "title": "Project Structure",
+                    "path": "/en/basics/project-structure/",
+                    "keywords": [
+                        "folder",
+                        "directory",
+                        "src"
+                    ]
+                },
+                {
+                    "title": "Components",
+                    "path": "/en/basics/astro-components/",
+                    "keywords": [
+                        "component",
+                        ".astro",
+                        "props"
+                    ]
+                },
+                {
+                    "title": "Pages",
+                    "path": "/en/basics/astro-pages/",
+                    "keywords": [
+                        "page",
+                        "route",
+                        "html"
+                    ]
+                },
+                {
+                    "title": "Layouts",
+                    "path": "/en/basics/layouts/",
+                    "keywords": [
+                        "layout",
+                        "template",
+                        "slot"
+                    ]
+                },
+                {
+                    "title": "Routing",
+                    "path": "/en/guides/routing/",
+                    "keywords": [
+                        "routes",
+                        "params",
+                        "dynamic"
+                    ]
+                },
+                {
+                    "title": "Astro Islands",
+                    "path": "/en/concepts/islands/",
+                    "keywords": [
+                        "islands",
+                        "hydration",
+                        "client:*"
+                    ]
+                },
+                {
+                    "title": "View Transitions",
+                    "path": "/en/guides/view-transitions/",
+                    "keywords": [
+                        "transition",
+                        "animation",
+                        "spa"
+                    ]
+                }
+            ]
+        },
+        "content": {
+            "description": "Content management and data handling",
+            "pages": [
+                {
+                    "title": "Content Collections",
+                    "path": "/en/guides/content-collections/",
+                    "keywords": [
+                        "collection",
+                        "schema",
+                        "getCollection"
+                    ]
+                },
+                {
+                    "title": "Content Layer API",
+                    "path": "/en/reference/content-layer-api/",
+                    "keywords": [
+                        "content layer",
+                        "loader",
+                        "defineCollection"
+                    ]
+                },
+                {
+                    "title": "Markdown & MDX",
+                    "path": "/en/guides/markdown-content/",
+                    "keywords": [
+                        "markdown",
+                        "mdx",
+                        "frontmatter"
+                    ]
+                }
+            ]
+        },
+        "server_features": {
+            "description": "Server-side rendering and API features",
+            "pages": [
+                {
+                    "title": "On-Demand Rendering (SSR)",
+                    "path": "/en/guides/on-demand-rendering/",
+                    "keywords": [
+                        "ssr",
+                        "server",
+                        "adapter"
+                    ]
+                },
+                {
+                    "title": "Endpoints",
+                    "path": "/en/guides/endpoints/",
+                    "keywords": [
+                        "api",
+                        "endpoint",
+                        "GET",
+                        "POST"
+                    ]
+                },
+                {
+                    "title": "Middleware",
+                    "path": "/en/guides/middleware/",
+                    "keywords": [
+                        "middleware",
+                        "onRequest",
+                        "locals"
+                    ]
+                },
+                {
+                    "title": "Actions",
+                    "path": "/en/guides/actions/",
+                    "keywords": [
+                        "actions",
+                        "form",
+                        "server action"
+                    ]
+                },
+                {
+                    "title": "Sessions",
+                    "path": "/en/guides/sessions/",
+                    "keywords": [
+                        "session",
+                        "auth",
+                        "cookies"
+                    ]
+                },
+                {
+                    "title": "Server Islands",
+                    "path": "/en/guides/server-islands/",
+                    "keywords": [
+                        "server island",
+                        "deferred",
+                        "fallback"
+                    ]
+                }
+            ]
+        },
+        "recipes": {
+            "description": "Integration guides and common patterns",
+            "pages": [
+                {
+                    "title": "CMS Guides",
+                    "path": "/en/guides/cms/",
+                    "keywords": [
+                        "cms",
+                        "headless",
+                        "sanity",
+                        "contentful"
+                    ]
+                },
+                {
+                    "title": "Backend Services",
+                    "path": "/en/guides/backend/",
+                    "keywords": [
+                        "backend",
+                        "database",
+                        "supabase",
+                        "firebase"
+                    ]
+                },
+                {
+                    "title": "Authentication",
+                    "path": "/en/guides/authentication/",
+                    "keywords": [
+                        "auth",
+                        "login",
+                        "session"
+                    ]
+                },
+                {
+                    "title": "Deploy",
+                    "path": "/en/guides/deploy/",
+                    "keywords": [
+                        "deploy",
+                        "vercel",
+                        "netlify",
+                        "cloudflare"
+                    ]
+                },
+                {
+                    "title": "Styling",
+                    "path": "/en/guides/styling/",
+                    "keywords": [
+                        "css",
+                        "tailwind",
+                        "scss"
+                    ]
+                }
+            ]
+        },
+        "reference": {
+            "description": "API and configuration reference",
+            "pages": [
+                {
+                    "title": "Configuration",
+                    "path": "/en/reference/configuration-reference/",
+                    "keywords": [
+                        "config",
+                        "astro.config",
+                        "options"
+                    ]
+                },
+                {
+                    "title": "CLI Reference",
+                    "path": "/en/reference/cli-reference/",
+                    "keywords": [
+                        "cli",
+                        "astro dev",
+                        "astro build"
+                    ]
+                },
+                {
+                    "title": "Error Reference",
+                    "path": "/en/reference/error-reference/",
+                    "keywords": [
+                        "error",
+                        "code",
+                        "E0001"
+                    ]
+                },
+                {
+                    "title": "Template Syntax",
+                    "path": "/en/reference/astro-template-directives/",
+                    "keywords": [
+                        "directive",
+                        "set:html",
+                        "is:inline"
+                    ]
+                },
+                {
+                    "title": "Built-in Components",
+                    "path": "/en/reference/built-in-components/",
+                    "keywords": [
+                        "Image",
+                        "Code",
+                        "Fragment"
+                    ]
+                }
+            ]
+        }
+    }
+}
