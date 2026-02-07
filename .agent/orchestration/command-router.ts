@@ -90,6 +90,13 @@ export const SLASH_COMMANDS: Record<string, SlashCommand> = {
         agents: ['elite-core'],
         workflow: 'status-workflow',
         requiresSocraticGate: false
+    },
+    'onboard-absorption': {
+        name: 'onboard-absorption',
+        description: 'Onboard an existing project (70% done)',
+        agents: ['elite-core', 'astro-oracle', 'sentinel-auditor', 'rewoo-coordinator'],
+        workflow: 'onboarding-workflow',
+        requiresSocraticGate: true
     }
 };
 
@@ -255,6 +262,13 @@ export function getWorkflowSteps(command: SlashCommand): string[] {
             'Build status',
             'Dependency check',
             'Memory signals summary'
+        ],
+        'onboarding-workflow': [
+            'Trigger Tech Stack Validation (Astro/Tailwind)',
+            'Parallel Architecture Mapping (ReWoo Pattern)',
+            'Technical Debt & Security Audit (Sentinel)',
+            'Extract Learning Data (Failure/Success Patterns)',
+            'Generate Absorption Report & Workflow Plan'
         ]
     };
 
